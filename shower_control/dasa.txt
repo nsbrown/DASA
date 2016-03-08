@@ -1,0 +1,54 @@
+Dasa
+Turn
+On
+Start
+Off
+Done
+Stop
+Pause
+Reset
+Restart
+
+Move
+Action
+Change
+Maneuver
+Motion
+Shift
+Step
+Back
+Backward
+Backwards
+Behind
+Forward
+Front
+Advance
+Ahead
+Closer
+Left
+Right
+Down
+Up
+
+Mode
+Status
+Process
+Shower
+Jet
+Massage
+Rain
+
+Temperature Up
+Temperature Down
+Temperature Lower
+Temperature Higher
+Temp 
+Heat
+Warmth
+Lower
+Cold
+Colder
+Chill
+Higher
+Warmer
+
