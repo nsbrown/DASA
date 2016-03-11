@@ -11,6 +11,38 @@ struct commandData
 		int arg;
 };
 
+void power(struct commandData*, int arg)
+{
+	
+	if(arg == 1)
+	{
+		printf("TURNING ON\n");
+		system("./dasademo ON");
+	}
+	else if(arg == 0)
+	{
+		printf("TURNING OFF\n");
+		system("./dasademo OFF");
+	}
+}
+
+void processNextWord(sruct commandData* words, int arg)
+{
+	FILE *input;
+	input = stdin;
+	char buffer[BUFFER_SIZE];
+	
+	for(int i = 0; words[i].word != 0 ;i++)
+	{
+		if(strcasecmp(buffer, words[i].word) == 0)
+		{
+			(*words[i].fp)(words.nextArray, arg);
+			return;
+		}
+	}
+	printf("word %s not found\n", buffer);
+}
+
 
 //--------------High Level Array-------------------
 struct commandData highLevel[]
@@ -48,37 +80,6 @@ struct commandData dasaNames[] =
 
 //--------------
 
-void power(struct commandData*, int arg)
-{
-	
-	if(arg == 1)
-	{
-		printf("TURNING ON\n");
-		system("./dasademo ON");
-	}
-	else if(arg == 0)
-	{
-		printf("TURNING OFF\n");
-		system("./dasademo OFF");
-	}
-}
-
-void processNextWord(sruct commandData* words, int arg)
-{
-	FILE *input;
-	input = stdin;
-	char buffer[BUFFER_SIZE];
-	
-	for(int i = 0; words[i].word != 0 ;i++)
-	{
-		if(strcasecmp(buffer, words[i].word) == 0)
-		{
-			(*words[i].fp)(words.nextArray, arg);
-			return;
-		}
-	}
-	printf("word %s not found\n", buffer);
-}
 
 int main()
 {
