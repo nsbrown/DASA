@@ -34,16 +34,18 @@ void processNextWord(struct commandData* words, int arg)
 	char buffer[BUFFER_SIZE];
 	int i;
 	
-	for(i = 0; words[i].word != 0 ;i++)
-	{
-		
-		if (fscanf(input, "%s", buffer) == 0) {
+	if (fscanf(input, "%s", buffer) == 0) {
+			printf("Got end of input\n");
 			if(!feof(input)) {
 				perror("returned null");
 			}
-			else {break;}
-			continue;
+			return;
 		}
+		printf("read %s \n", buffer);
+		
+	for(i = 0; words[i].word != 0 ;i++)
+	{
+		printf("comparing to %s \n", words[i].word);
 		if(strcasecmp(buffer, words[i].word) == 0)
 		{
 			(*words[i].fp)(words[i].nextArray, arg);
