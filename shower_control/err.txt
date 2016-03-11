@@ -175,57 +175,57 @@ INFO: continuous.c(252): Ready....
 INFO: continuous.c(261): Listening...
 Input overrun, read calls are too rare (non-fatal)
 INFO: cmn_prior.c(131): cmn_prior_update: from < 40.00  3.00 -1.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00 >
-INFO: cmn_prior.c(149): cmn_prior_update: to   < 10.06 -23.76 -5.36 -8.09 -3.72 -2.61  0.65  0.99 -1.36 -5.10 -4.94  0.12  4.15 >
-INFO: ngram_search_fwdtree.c(1553):      453 words recognized (4/fr)
-INFO: ngram_search_fwdtree.c(1555):    10188 senones evaluated (100/fr)
-INFO: ngram_search_fwdtree.c(1559):     3795 channels searched (37/fr), 2058 1st, 493 last
-INFO: ngram_search_fwdtree.c(1562):      493 words for which last channels evaluated (4/fr)
-INFO: ngram_search_fwdtree.c(1564):      186 candidate words for entering last phone (1/fr)
-INFO: ngram_search_fwdtree.c(1567): fwdtree 0.77 CPU 0.755 xRT
-INFO: ngram_search_fwdtree.c(1570): fwdtree 2.09 wall 2.044 xRT
+INFO: cmn_prior.c(149): cmn_prior_update: to   <  9.60 -23.86 -4.86 -7.20 -2.78 -1.05  3.12  3.33  0.60 -3.70 -3.04  1.64  4.71 >
+INFO: ngram_search_fwdtree.c(1553):      667 words recognized (5/fr)
+INFO: ngram_search_fwdtree.c(1555):    15332 senones evaluated (104/fr)
+INFO: ngram_search_fwdtree.c(1559):     5771 channels searched (39/fr), 3003 1st, 863 last
+INFO: ngram_search_fwdtree.c(1562):      724 words for which last channels evaluated (4/fr)
+INFO: ngram_search_fwdtree.c(1564):      289 candidate words for entering last phone (1/fr)
+INFO: ngram_search_fwdtree.c(1567): fwdtree 1.01 CPU 0.687 xRT
+INFO: ngram_search_fwdtree.c(1570): fwdtree 2.51 wall 1.709 xRT
 INFO: ngram_search_fwdflat.c(302): Utterance vocabulary contains 2 words
-INFO: ngram_search_fwdflat.c(948):      444 words recognized (4/fr)
-INFO: ngram_search_fwdflat.c(950):      891 senones evaluated (9/fr)
-INFO: ngram_search_fwdflat.c(952):      493 channels searched (4/fr)
-INFO: ngram_search_fwdflat.c(954):      493 words searched (4/fr)
-INFO: ngram_search_fwdflat.c(957):       57 word transitions (0/fr)
-INFO: ngram_search_fwdflat.c(960): fwdflat 0.06 CPU 0.059 xRT
-INFO: ngram_search_fwdflat.c(963): fwdflat 0.06 wall 0.062 xRT
-INFO: ngram_search.c(1253): lattice start node <s>.0 end node </s>.94
+INFO: ngram_search_fwdflat.c(948):      664 words recognized (5/fr)
+INFO: ngram_search_fwdflat.c(950):     1296 senones evaluated (9/fr)
+INFO: ngram_search_fwdflat.c(952):      718 channels searched (4/fr)
+INFO: ngram_search_fwdflat.c(954):      718 words searched (4/fr)
+INFO: ngram_search_fwdflat.c(957):       76 word transitions (0/fr)
+INFO: ngram_search_fwdflat.c(960): fwdflat 0.09 CPU 0.061 xRT
+INFO: ngram_search_fwdflat.c(963): fwdflat 0.09 wall 0.058 xRT
+INFO: ngram_search.c(1253): lattice start node <s>.0 end node </s>.26
 INFO: ngram_search.c(1279): Eliminated 2 nodes before end node
-INFO: ngram_search.c(1384): Lattice has 150 nodes, 321 links
-INFO: ps_lattice.c(1380): Bestpath score: -532
-INFO: ps_lattice.c(1384): Normalizer P(O) = alpha(</s>:94:100) = -31607
-INFO: ps_lattice.c(1441): Joint P(O,S) = -42303 P(S|O) = -10696
+INFO: ngram_search.c(1384): Lattice has 235 nodes, 34 links
+INFO: ps_lattice.c(1380): Bestpath score: -434
+INFO: ps_lattice.c(1384): Normalizer P(O) = alpha(</s>:26:145) = -47268
+INFO: ps_lattice.c(1441): Joint P(O,S) = -53720 P(S|O) = -6452
 INFO: ngram_search.c(875): bestpath 0.00 CPU 0.000 xRT
-INFO: ngram_search.c(878): bestpath 0.00 wall 0.002 xRT
+INFO: ngram_search.c(878): bestpath 0.00 wall 0.001 xRT
 INFO: continuous.c(275): Ready....
 INFO: continuous.c(261): Listening...
 Input overrun, read calls are too rare (non-fatal)
 Input overrun, read calls are too rare (non-fatal)
-INFO: cmn_prior.c(131): cmn_prior_update: from < 10.06 -23.76 -5.36 -8.09 -3.72 -2.61  0.65  0.99 -1.36 -5.10 -4.94  0.12  4.15 >
-INFO: cmn_prior.c(149): cmn_prior_update: to   < 28.82 -9.12 -7.67  0.86 -5.51  0.56  3.60  1.18 -3.09 -1.54 -1.77  2.86  2.71 >
-INFO: ngram_search_fwdtree.c(1553):     1074 words recognized (6/fr)
-INFO: ngram_search_fwdtree.c(1555):    40177 senones evaluated (235/fr)
-INFO: ngram_search_fwdtree.c(1559):    24250 channels searched (141/fr), 3507 1st, 16194 last
-INFO: ngram_search_fwdtree.c(1562):     1497 words for which last channels evaluated (8/fr)
-INFO: ngram_search_fwdtree.c(1564):     1792 candidate words for entering last phone (10/fr)
-INFO: ngram_search_fwdtree.c(1567): fwdtree 2.25 CPU 1.316 xRT
-INFO: ngram_search_fwdtree.c(1570): fwdtree 30.08 wall 17.591 xRT
-INFO: ngram_search_fwdflat.c(302): Utterance vocabulary contains 12 words
-INFO: ngram_search_fwdflat.c(948):      923 words recognized (5/fr)
-INFO: ngram_search_fwdflat.c(950):    34299 senones evaluated (201/fr)
-INFO: ngram_search_fwdflat.c(952):    28502 channels searched (166/fr)
-INFO: ngram_search_fwdflat.c(954):     1889 words searched (11/fr)
-INFO: ngram_search_fwdflat.c(957):      916 word transitions (5/fr)
-INFO: ngram_search_fwdflat.c(960): fwdflat 0.65 CPU 0.380 xRT
-INFO: ngram_search_fwdflat.c(963): fwdflat 0.65 wall 0.380 xRT
+INFO: cmn_prior.c(131): cmn_prior_update: from <  9.60 -23.86 -4.86 -7.20 -2.78 -1.05  3.12  3.33  0.60 -3.70 -3.04  1.64  4.71 >
+INFO: cmn_prior.c(149): cmn_prior_update: to   < 27.35 -16.26 -4.00 -5.73 -1.49 -0.80  2.74  0.29  4.14 -1.84  3.19 -0.32  2.67 >
+INFO: ngram_search_fwdtree.c(1553):      747 words recognized (6/fr)
+INFO: ngram_search_fwdtree.c(1555):    28791 senones evaluated (227/fr)
+INFO: ngram_search_fwdtree.c(1559):    17002 channels searched (133/fr), 2583 1st, 11122 last
+INFO: ngram_search_fwdtree.c(1562):     1047 words for which last channels evaluated (8/fr)
+INFO: ngram_search_fwdtree.c(1564):     1322 candidate words for entering last phone (10/fr)
+INFO: ngram_search_fwdtree.c(1567): fwdtree 1.00 CPU 0.787 xRT
+INFO: ngram_search_fwdtree.c(1570): fwdtree 2.61 wall 2.054 xRT
+INFO: ngram_search_fwdflat.c(302): Utterance vocabulary contains 9 words
+INFO: ngram_search_fwdflat.c(948):      668 words recognized (5/fr)
+INFO: ngram_search_fwdflat.c(950):    16695 senones evaluated (131/fr)
+INFO: ngram_search_fwdflat.c(952):    13982 channels searched (110/fr)
+INFO: ngram_search_fwdflat.c(954):     1184 words searched (9/fr)
+INFO: ngram_search_fwdflat.c(957):      437 word transitions (3/fr)
+INFO: ngram_search_fwdflat.c(960): fwdflat 0.42 CPU 0.331 xRT
+INFO: ngram_search_fwdflat.c(963): fwdflat 0.42 wall 0.331 xRT
 INFO: ngram_search.c(1253): lattice start node <s>.0 end node </s>.3
-INFO: ngram_search.c(1279): Eliminated 1 nodes before end node
-INFO: ngram_search.c(1384): Lattice has 246 nodes, 1 links
-INFO: ps_lattice.c(1380): Bestpath score: -368
-INFO: ps_lattice.c(1384): Normalizer P(O) = alpha(</s>:3:169) = -230411
-INFO: ps_lattice.c(1441): Joint P(O,S) = -230411 P(S|O) = 0
+INFO: ngram_search.c(1279): Eliminated 2 nodes before end node
+INFO: ngram_search.c(1384): Lattice has 164 nodes, 1 links
+INFO: ps_lattice.c(1380): Bestpath score: -366
+INFO: ps_lattice.c(1384): Normalizer P(O) = alpha(</s>:3:125) = -184076
+INFO: ps_lattice.c(1441): Joint P(O,S) = -184076 P(S|O) = 0
 INFO: ngram_search.c(875): bestpath 0.00 CPU 0.000 xRT
 INFO: ngram_search.c(878): bestpath 0.00 wall 0.001 xRT
 INFO: continuous.c(275): Ready....
@@ -234,31 +234,215 @@ INFO: continuous.c(261): Listening...
 Input overrun, read calls are too rare (non-fatal)
 Input overrun, read calls are too rare (non-fatal)
 Input overrun, read calls are too rare (non-fatal)
-Input overrun, read calls are too rare (non-fatal)
-INFO: cmn_prior.c(131): cmn_prior_update: from < 28.82 -9.12 -7.67  0.86 -5.51  0.56  3.60  1.18 -3.09 -1.54 -1.77  2.86  2.71 >
-INFO: cmn_prior.c(149): cmn_prior_update: to   < 36.72 -8.37 -6.18  2.32 -4.49 -0.87  2.48 -1.36 -1.28  0.21 -1.07  0.64  1.55 >
-INFO: ngram_search_fwdtree.c(1553):     1922 words recognized (8/fr)
-INFO: ngram_search_fwdtree.c(1555):    65753 senones evaluated (260/fr)
-INFO: ngram_search_fwdtree.c(1559):    43684 channels searched (172/fr), 4783 1st, 32766 last
-INFO: ngram_search_fwdtree.c(1562):     2504 words for which last channels evaluated (9/fr)
-INFO: ngram_search_fwdtree.c(1564):     2309 candidate words for entering last phone (9/fr)
-INFO: ngram_search_fwdtree.c(1567): fwdtree 2.31 CPU 0.913 xRT
-INFO: ngram_search_fwdtree.c(1570): fwdtree 7.82 wall 3.089 xRT
+INFO: cmn_prior.c(131): cmn_prior_update: from < 27.35 -16.26 -4.00 -5.73 -1.49 -0.80  2.74  0.29  4.14 -1.84  3.19 -0.32  2.67 >
+INFO: cmn_prior.c(149): cmn_prior_update: to   < 34.39 -9.80 -1.13 -2.23  0.53 -0.32 -0.22 -0.32  5.06 -1.07  4.96 -2.32  2.05 >
+INFO: ngram_search_fwdtree.c(1553):     2003 words recognized (9/fr)
+INFO: ngram_search_fwdtree.c(1555):    64704 senones evaluated (283/fr)
+INFO: ngram_search_fwdtree.c(1559):    42791 channels searched (186/fr), 4677 1st, 32047 last
+INFO: ngram_search_fwdtree.c(1562):     2435 words for which last channels evaluated (10/fr)
+INFO: ngram_search_fwdtree.c(1564):     2044 candidate words for entering last phone (8/fr)
+INFO: ngram_search_fwdtree.c(1567): fwdtree 2.18 CPU 0.952 xRT
+INFO: ngram_search_fwdtree.c(1570): fwdtree 13.39 wall 5.848 xRT
 INFO: ngram_search_fwdflat.c(302): Utterance vocabulary contains 16 words
-INFO: ngram_search_fwdflat.c(948):     2011 words recognized (8/fr)
-INFO: ngram_search_fwdflat.c(950):    76872 senones evaluated (304/fr)
-INFO: ngram_search_fwdflat.c(952):    66902 channels searched (264/fr)
-INFO: ngram_search_fwdflat.c(954):     3892 words searched (15/fr)
-INFO: ngram_search_fwdflat.c(957):     1791 word transitions (7/fr)
-INFO: ngram_search_fwdflat.c(960): fwdflat 1.20 CPU 0.474 xRT
-INFO: ngram_search_fwdflat.c(963): fwdflat 1.20 wall 0.475 xRT
-INFO: ngram_search.c(1253): lattice start node <s>.0 end node </s>.225
-INFO: ngram_search.c(1279): Eliminated 1 nodes before end node
-INFO: ngram_search.c(1384): Lattice has 261 nodes, 777 links
-INFO: ps_lattice.c(1380): Bestpath score: -10553
-INFO: ps_lattice.c(1384): Normalizer P(O) = alpha(</s>:225:251) = -562316
-INFO: ps_lattice.c(1441): Joint P(O,S) = -587137 P(S|O) = -24821
+INFO: ngram_search_fwdflat.c(948):     1838 words recognized (8/fr)
+INFO: ngram_search_fwdflat.c(950):    70767 senones evaluated (309/fr)
+INFO: ngram_search_fwdflat.c(952):    63290 channels searched (276/fr)
+INFO: ngram_search_fwdflat.c(954):     3492 words searched (15/fr)
+INFO: ngram_search_fwdflat.c(957):     1995 word transitions (8/fr)
+INFO: ngram_search_fwdflat.c(960): fwdflat 1.08 CPU 0.472 xRT
+INFO: ngram_search_fwdflat.c(963): fwdflat 1.09 wall 0.476 xRT
+INFO: ngram_search.c(1253): lattice start node <s>.0 end node </s>.156
+INFO: ngram_search.c(1279): Eliminated 0 nodes before end node
+INFO: ngram_search.c(1384): Lattice has 319 nodes, 675 links
+INFO: ps_lattice.c(1380): Bestpath score: -6641
+INFO: ps_lattice.c(1384): Normalizer P(O) = alpha(</s>:156:227) = -455457
+INFO: ps_lattice.c(1441): Joint P(O,S) = -478338 P(S|O) = -22881
 INFO: ngram_search.c(875): bestpath 0.01 CPU 0.004 xRT
 INFO: ngram_search.c(878): bestpath 0.01 wall 0.004 xRT
+INFO: continuous.c(275): Ready....
+Input overrun, read calls are too rare (non-fatal)
+INFO: continuous.c(261): Listening...
+Input overrun, read calls are too rare (non-fatal)
+Input overrun, read calls are too rare (non-fatal)
+INFO: cmn_prior.c(131): cmn_prior_update: from < 34.39 -9.80 -1.13 -2.23  0.53 -0.32 -0.22 -0.32  5.06 -1.07  4.96 -2.32  2.05 >
+INFO: cmn_prior.c(149): cmn_prior_update: to   < 35.65 -9.29  1.18 -1.28  1.52  1.28  0.76 -0.16  4.95  0.40  5.86 -0.92  2.27 >
+INFO: ngram_search_fwdtree.c(1553):     1725 words recognized (8/fr)
+INFO: ngram_search_fwdtree.c(1555):    56644 senones evaluated (262/fr)
+INFO: ngram_search_fwdtree.c(1559):    35810 channels searched (165/fr), 4246 1st, 25457 last
+INFO: ngram_search_fwdtree.c(1562):     2019 words for which last channels evaluated (9/fr)
+INFO: ngram_search_fwdtree.c(1564):     1831 candidate words for entering last phone (8/fr)
+INFO: ngram_search_fwdtree.c(1567): fwdtree 2.16 CPU 1.000 xRT
+INFO: ngram_search_fwdtree.c(1570): fwdtree 16.29 wall 7.543 xRT
+INFO: ngram_search_fwdflat.c(302): Utterance vocabulary contains 17 words
+INFO: ngram_search_fwdflat.c(948):     1718 words recognized (8/fr)
+INFO: ngram_search_fwdflat.c(950):    61645 senones evaluated (285/fr)
+INFO: ngram_search_fwdflat.c(952):    53939 channels searched (249/fr)
+INFO: ngram_search_fwdflat.c(954):     3164 words searched (14/fr)
+INFO: ngram_search_fwdflat.c(957):     1516 word transitions (7/fr)
+INFO: ngram_search_fwdflat.c(960): fwdflat 0.93 CPU 0.431 xRT
+INFO: ngram_search_fwdflat.c(963): fwdflat 0.93 wall 0.432 xRT
+INFO: ngram_search.c(1253): lattice start node <s>.0 end node </s>.194
+INFO: ngram_search.c(1279): Eliminated 1 nodes before end node
+INFO: ngram_search.c(1384): Lattice has 266 nodes, 1108 links
+INFO: ps_lattice.c(1380): Bestpath score: -7151
+INFO: ps_lattice.c(1384): Normalizer P(O) = alpha(</s>:194:214) = -396783
+INFO: ps_lattice.c(1441): Joint P(O,S) = -440752 P(S|O) = -43969
+INFO: ngram_search.c(875): bestpath 0.01 CPU 0.005 xRT
+INFO: ngram_search.c(878): bestpath 0.01 wall 0.006 xRT
+INFO: continuous.c(275): Ready....
+Input overrun, read calls are too rare (non-fatal)
+INFO: continuous.c(261): Listening...
+INFO: cmn_prior.c(99): cmn_prior_update: from < 35.65 -9.29  1.18 -1.28  1.52  1.28  0.76 -0.16  4.95  0.40  5.86 -0.92  2.27 >
+INFO: cmn_prior.c(116): cmn_prior_update: to   < 32.93 -9.44  1.55 -0.88  1.68  1.32  1.04  0.26  4.70  0.23  4.99 -0.82  2.41 >
+Input overrun, read calls are too rare (non-fatal)
+INFO: cmn_prior.c(131): cmn_prior_update: from < 32.93 -9.44  1.55 -0.88  1.68  1.32  1.04  0.26  4.70  0.23  4.99 -0.82  2.41 >
+INFO: cmn_prior.c(149): cmn_prior_update: to   < 29.87 -9.71  1.15 -1.22  1.24  1.10  1.34  0.74  4.46  0.05  4.26 -0.24  2.76 >
+INFO: ngram_search_fwdtree.c(1553):      645 words recognized (5/fr)
+INFO: ngram_search_fwdtree.c(1555):    16139 senones evaluated (121/fr)
+INFO: ngram_search_fwdtree.c(1559):     6435 channels searched (48/fr), 2709 1st, 1610 last
+INFO: ngram_search_fwdtree.c(1562):      693 words for which last channels evaluated (5/fr)
+INFO: ngram_search_fwdtree.c(1564):      367 candidate words for entering last phone (2/fr)
+INFO: ngram_search_fwdtree.c(1567): fwdtree 2.34 CPU 1.759 xRT
+INFO: ngram_search_fwdtree.c(1570): fwdtree 43.18 wall 32.468 xRT
+INFO: ngram_search_fwdflat.c(302): Utterance vocabulary contains 3 words
+INFO: ngram_search_fwdflat.c(948):      636 words recognized (5/fr)
+INFO: ngram_search_fwdflat.c(950):     4029 senones evaluated (30/fr)
+INFO: ngram_search_fwdflat.c(952):     2061 channels searched (15/fr)
+INFO: ngram_search_fwdflat.c(954):      720 words searched (5/fr)
+INFO: ngram_search_fwdflat.c(957):      133 word transitions (1/fr)
+INFO: ngram_search_fwdflat.c(960): fwdflat 0.23 CPU 0.173 xRT
+INFO: ngram_search_fwdflat.c(963): fwdflat 0.23 wall 0.173 xRT
+INFO: ngram_search.c(1253): lattice start node <s>.0 end node </s>.85
+INFO: ngram_search.c(1279): Eliminated 1 nodes before end node
+INFO: ngram_search.c(1384): Lattice has 189 nodes, 443 links
+INFO: ps_lattice.c(1380): Bestpath score: -897
+INFO: ps_lattice.c(1384): Normalizer P(O) = alpha(</s>:85:131) = -54445
+INFO: ps_lattice.c(1441): Joint P(O,S) = -64779 P(S|O) = -10334
+INFO: ngram_search.c(875): bestpath 0.00 CPU 0.000 xRT
+INFO: ngram_search.c(878): bestpath 0.00 wall 0.002 xRT
+INFO: continuous.c(275): Ready....
+Input overrun, read calls are too rare (non-fatal)
+INFO: continuous.c(261): Listening...
+Input overrun, read calls are too rare (non-fatal)
+Input overrun, read calls are too rare (non-fatal)
+INFO: cmn_prior.c(99): cmn_prior_update: from < 29.87 -9.71  1.15 -1.22  1.24  1.10  1.34  0.74  4.46  0.05  4.26 -0.24  2.76 >
+INFO: cmn_prior.c(116): cmn_prior_update: to   < 32.60 -8.21 -0.50 -2.61 -1.62  1.03  1.43 -0.12  4.16  0.97  4.35 -0.43  3.01 >
+Input overrun, read calls are too rare (non-fatal)
+INFO: cmn_prior.c(131): cmn_prior_update: from < 32.60 -8.21 -0.50 -2.61 -1.62  1.03  1.43 -0.12  4.16  0.97  4.35 -0.43  3.01 >
+INFO: cmn_prior.c(149): cmn_prior_update: to   < 31.72 -8.08 -0.50 -2.84 -1.71  1.04  1.35 -0.23  3.99  0.90  4.15 -0.44  2.94 >
+INFO: ngram_search_fwdtree.c(1553):     1707 words recognized (7/fr)
+INFO: ngram_search_fwdtree.c(1555):    54215 senones evaluated (218/fr)
+INFO: ngram_search_fwdtree.c(1559):    32426 channels searched (130/fr), 5141 1st, 21682 last
+INFO: ngram_search_fwdtree.c(1562):     2012 words for which last channels evaluated (8/fr)
+INFO: ngram_search_fwdtree.c(1564):     1832 candidate words for entering last phone (7/fr)
+INFO: ngram_search_fwdtree.c(1567): fwdtree 5.75 CPU 2.309 xRT
+INFO: ngram_search_fwdtree.c(1570): fwdtree 132.70 wall 53.293 xRT
+INFO: ngram_search_fwdflat.c(302): Utterance vocabulary contains 16 words
+INFO: ngram_search_fwdflat.c(948):     1680 words recognized (7/fr)
+INFO: ngram_search_fwdflat.c(950):    51529 senones evaluated (207/fr)
+INFO: ngram_search_fwdflat.c(952):    44659 channels searched (179/fr)
+INFO: ngram_search_fwdflat.c(954):     2973 words searched (11/fr)
+INFO: ngram_search_fwdflat.c(957):     1295 word transitions (5/fr)
+INFO: ngram_search_fwdflat.c(960): fwdflat 0.90 CPU 0.361 xRT
+INFO: ngram_search_fwdflat.c(963): fwdflat 0.90 wall 0.362 xRT
+INFO: ngram_search.c(1253): lattice start node <s>.0 end node </s>.201
+INFO: ngram_search.c(1279): Eliminated 2 nodes before end node
+INFO: ngram_search.c(1384): Lattice has 278 nodes, 507 links
+INFO: ps_lattice.c(1380): Bestpath score: -7491
+INFO: ps_lattice.c(1384): Normalizer P(O) = alpha(</s>:201:247) = -382300
+INFO: ps_lattice.c(1441): Joint P(O,S) = -404386 P(S|O) = -22086
+INFO: ngram_search.c(875): bestpath 0.00 CPU 0.000 xRT
+INFO: ngram_search.c(878): bestpath 0.00 wall 0.002 xRT
+INFO: continuous.c(275): Ready....
+Input overrun, read calls are too rare (non-fatal)
+INFO: continuous.c(261): Listening...
+Input overrun, read calls are too rare (non-fatal)
+Input overrun, read calls are too rare (non-fatal)
+Input overrun, read calls are too rare (non-fatal)
+INFO: cmn_prior.c(131): cmn_prior_update: from < 31.72 -8.08 -0.50 -2.84 -1.71  1.04  1.35 -0.23  3.99  0.90  4.15 -0.44  2.94 >
+INFO: cmn_prior.c(149): cmn_prior_update: to   < 31.07 -8.79 -1.52 -3.22 -0.20  0.17  1.28  0.60  2.79  1.43  5.34  0.17  2.32 >
+INFO: ngram_search_fwdtree.c(1553):     1968 words recognized (7/fr)
+INFO: ngram_search_fwdtree.c(1555):    59978 senones evaluated (220/fr)
+INFO: ngram_search_fwdtree.c(1559):    35854 channels searched (131/fr), 5648 1st, 23767 last
+INFO: ngram_search_fwdtree.c(1562):     2353 words for which last channels evaluated (8/fr)
+INFO: ngram_search_fwdtree.c(1564):     1884 candidate words for entering last phone (6/fr)
+INFO: ngram_search_fwdtree.c(1567): fwdtree 2.28 CPU 0.835 xRT
+INFO: ngram_search_fwdtree.c(1570): fwdtree 9.79 wall 3.586 xRT
+INFO: ngram_search_fwdflat.c(302): Utterance vocabulary contains 19 words
+INFO: ngram_search_fwdflat.c(948):     2136 words recognized (8/fr)
+INFO: ngram_search_fwdflat.c(950):    64350 senones evaluated (236/fr)
+INFO: ngram_search_fwdflat.c(952):    55714 channels searched (204/fr)
+INFO: ngram_search_fwdflat.c(954):     3752 words searched (13/fr)
+INFO: ngram_search_fwdflat.c(957):     1577 word transitions (5/fr)
+INFO: ngram_search_fwdflat.c(960): fwdflat 1.08 CPU 0.396 xRT
+INFO: ngram_search_fwdflat.c(963): fwdflat 1.08 wall 0.397 xRT
+INFO: ngram_search.c(1253): lattice start node <s>.0 end node </s>.230
+INFO: ngram_search.c(1279): Eliminated 2 nodes before end node
+INFO: ngram_search.c(1384): Lattice has 257 nodes, 1199 links
+INFO: ps_lattice.c(1380): Bestpath score: -8217
+INFO: ps_lattice.c(1384): Normalizer P(O) = alpha(</s>:230:271) = -402816
+INFO: ps_lattice.c(1441): Joint P(O,S) = -514388 P(S|O) = -111572
+INFO: ngram_search.c(875): bestpath 0.02 CPU 0.007 xRT
+INFO: ngram_search.c(878): bestpath 0.01 wall 0.005 xRT
+INFO: continuous.c(275): Ready....
+Input overrun, read calls are too rare (non-fatal)
+INFO: cmn_prior.c(99): cmn_prior_update: from < 31.07 -8.79 -1.52 -3.22 -0.20  0.17  1.28  0.60  2.79  1.43  5.34  0.17  2.32 >
+INFO: cmn_prior.c(116): cmn_prior_update: to   < 30.86 -9.04 -1.69 -3.16 -0.14  0.15  1.28  0.68  2.88  1.31  5.12  0.27  2.40 >
+INFO: continuous.c(261): Listening...
+Input overrun, read calls are too rare (non-fatal)
+Input overrun, read calls are too rare (non-fatal)
+INFO: cmn_prior.c(131): cmn_prior_update: from < 30.86 -9.04 -1.69 -3.16 -0.14  0.15  1.28  0.68  2.88  1.31  5.12  0.27  2.40 >
+INFO: cmn_prior.c(149): cmn_prior_update: to   < 34.02 -6.62 -2.36 -3.00 -0.76 -0.94  0.07 -1.21  3.36  1.33  6.26 -0.02  1.96 >
+INFO: ngram_search_fwdtree.c(1553):     1685 words recognized (8/fr)
+INFO: ngram_search_fwdtree.c(1555):    59638 senones evaluated (276/fr)
+INFO: ngram_search_fwdtree.c(1559):    38544 channels searched (178/fr), 4252 1st, 28163 last
+INFO: ngram_search_fwdtree.c(1562):     2082 words for which last channels evaluated (9/fr)
+INFO: ngram_search_fwdtree.c(1564):     2450 candidate words for entering last phone (11/fr)
+INFO: ngram_search_fwdtree.c(1567): fwdtree 1.93 CPU 0.894 xRT
+INFO: ngram_search_fwdtree.c(1570): fwdtree 12.95 wall 5.994 xRT
+INFO: ngram_search_fwdflat.c(302): Utterance vocabulary contains 17 words
+INFO: ngram_search_fwdflat.c(948):     1529 words recognized (7/fr)
+INFO: ngram_search_fwdflat.c(950):    58663 senones evaluated (272/fr)
+INFO: ngram_search_fwdflat.c(952):    50438 channels searched (233/fr)
+INFO: ngram_search_fwdflat.c(954):     2978 words searched (13/fr)
+INFO: ngram_search_fwdflat.c(957):     1618 word transitions (7/fr)
+INFO: ngram_search_fwdflat.c(960): fwdflat 0.89 CPU 0.412 xRT
+INFO: ngram_search_fwdflat.c(963): fwdflat 0.89 wall 0.414 xRT
+INFO: ngram_search.c(1253): lattice start node <s>.0 end node </s>.134
+INFO: ngram_search.c(1279): Eliminated 2 nodes before end node
+INFO: ngram_search.c(1384): Lattice has 320 nodes, 546 links
+INFO: ps_lattice.c(1380): Bestpath score: -4791
+INFO: ps_lattice.c(1384): Normalizer P(O) = alpha(</s>:134:214) = -380176
+INFO: ps_lattice.c(1441): Joint P(O,S) = -416692 P(S|O) = -36516
+INFO: ngram_search.c(875): bestpath 0.01 CPU 0.005 xRT
+INFO: ngram_search.c(878): bestpath 0.00 wall 0.002 xRT
+INFO: continuous.c(275): Ready....
+Input overrun, read calls are too rare (non-fatal)
+INFO: continuous.c(261): Listening...
+INFO: cmn_prior.c(131): cmn_prior_update: from < 34.02 -6.62 -2.36 -3.00 -0.76 -0.94  0.07 -1.21  3.36  1.33  6.26 -0.02  1.96 >
+INFO: cmn_prior.c(149): cmn_prior_update: to   < 31.22 -7.70 -2.17 -2.94 -0.83 -0.89  0.37 -0.81  3.14  1.08  5.45  0.09  2.16 >
+INFO: ngram_search_fwdtree.c(1553):      329 words recognized (5/fr)
+INFO: ngram_search_fwdtree.c(1555):     8161 senones evaluated (112/fr)
+INFO: ngram_search_fwdtree.c(1559):     3141 channels searched (43/fr), 1449 1st, 556 last
+INFO: ngram_search_fwdtree.c(1562):      356 words for which last channels evaluated (4/fr)
+INFO: ngram_search_fwdtree.c(1564):      195 candidate words for entering last phone (2/fr)
+INFO: ngram_search_fwdtree.c(1567): fwdtree 4.81 CPU 6.589 xRT
+INFO: ngram_search_fwdtree.c(1570): fwdtree 147.76 wall 202.409 xRT
+INFO: ngram_search_fwdflat.c(302): Utterance vocabulary contains 2 words
+INFO: ngram_search_fwdflat.c(948):      329 words recognized (5/fr)
+INFO: ngram_search_fwdflat.c(950):      630 senones evaluated (9/fr)
+INFO: ngram_search_fwdflat.c(952):      348 channels searched (4/fr)
+INFO: ngram_search_fwdflat.c(954):      348 words searched (4/fr)
+INFO: ngram_search_fwdflat.c(957):       66 word transitions (0/fr)
+INFO: ngram_search_fwdflat.c(960): fwdflat 0.04 CPU 0.055 xRT
+INFO: ngram_search_fwdflat.c(963): fwdflat 0.04 wall 0.057 xRT
+INFO: ngram_search.c(1253): lattice start node <s>.0 end node </s>.14
+INFO: ngram_search.c(1279): Eliminated 1 nodes before end node
+INFO: ngram_search.c(1384): Lattice has 104 nodes, 24 links
+INFO: ps_lattice.c(1380): Bestpath score: -423
+INFO: ps_lattice.c(1384): Normalizer P(O) = alpha(</s>:14:71) = -37388
+INFO: ps_lattice.c(1441): Joint P(O,S) = -43838 P(S|O) = -6450
+INFO: ngram_search.c(875): bestpath 0.00 CPU 0.000 xRT
+INFO: ngram_search.c(878): bestpath 0.00 wall 0.001 xRT
 INFO: continuous.c(275): Ready....
 Input overrun, read calls are too rare (non-fatal)
