@@ -72,7 +72,7 @@ struct commandData highLevel[]
 struct commandData dasaNames[] = 
 {	//{"Daisy",proccessNextWord(),highLevel}, 
 	//{"Donald" proccessNextWord(), highLevel},
-	{"DASA", proccessNextWord, highLevel, 0}, 
+	{"DASA", processNextWord, highLevel, 0}, 
 	{0,0,0,0}
 };
 
@@ -89,7 +89,7 @@ int main()
 
 	for(;;)
 	{
-		proccessNextWord(dasaNames, 0);
+		processNextWord(dasaNames, 0);
 		
 	}
 }
