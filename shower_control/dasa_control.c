@@ -36,6 +36,14 @@ void processNextWord(struct commandData* words, int arg)
 	
 	for(i = 0; words[i].word != 0 ;i++)
 	{
+		char * result = fgets(buffer, BUFFER_SIZE, input);
+		if (result == NULL) {
+			if(!feof(input)) {
+				perror("fgets returned null");
+			}
+			else {break;}
+			continue;
+		}
 		if(strcasecmp(buffer, words[i].word) == 0)
 		{
 			(*words[i].fp)(words[i].nextArray, arg);
@@ -95,6 +103,7 @@ int main()
 		processNextWord(dasaNames, 0);
 		
 	}
+	return EXIT_SUCCESS;
 }
 
 
