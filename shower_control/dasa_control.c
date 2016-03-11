@@ -26,7 +26,7 @@ void power(struct commandData*, int arg)
 	}
 }
 
-void processNextWord(sruct commandData* words, int arg)
+void processNextWord(struct commandData* words, int arg)
 {
 	FILE *input;
 	input = stdin;
@@ -45,7 +45,7 @@ void processNextWord(sruct commandData* words, int arg)
 
 
 //--------------High Level Array-------------------
-struct commandData highLevel[]
+struct commandData highLevel[] =
 {
 	{"ON\n", power, 0 , 1}, {"OFF\n", power, 0, 0}
 	//{"Move", processNextWord(), }, {"Up", processNextWord(),   },
