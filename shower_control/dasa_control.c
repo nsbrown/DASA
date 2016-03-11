@@ -49,7 +49,8 @@ void processNextWord(struct commandData* words, int arg)
 //--------------High Level Array-------------------
 struct commandData highLevel[] =
 {
-	{"ON\n", power, 0 , 1}, {"OFF\n", power, 0, 0}
+	{"ON\n", power, 0 , 1}, {"OFF\n", power, 0, 0},
+	{0,0,0,0}
 	//{"Move", processNextWord(), }, {"Up", processNextWord(),   },
 	//{"Down", processNextWord(), }, {"Right", processNextWord(),  },
 	//{"Left"}, {"Motion"},
