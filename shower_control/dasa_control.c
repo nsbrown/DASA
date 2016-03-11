@@ -6,12 +6,12 @@
 struct commandData 
 {
 		char* word;
-		void (*fp)(struct Command*, int);
+		void (*fp)(struct commandData*, int);
 		struct commandData* nextArray;	
 		int arg;
 };
 
-void power(struct commandData*, int arg)
+void power(struct commandData* words, int arg)
 {
 	
 	if(arg == 1)
@@ -31,12 +31,13 @@ void processNextWord(struct commandData* words, int arg)
 	FILE *input;
 	input = stdin;
 	char buffer[BUFFER_SIZE];
+	int i;
 	
-	for(int i = 0; words[i].word != 0 ;i++)
+	for(i = 0; words[i].word != 0 ;i++)
 	{
 		if(strcasecmp(buffer, words[i].word) == 0)
 		{
-			(*words[i].fp)(words.nextArray, arg);
+			(*words[i].fp)(words[i].nextArray, arg);
 			return;
 		}
 	}
