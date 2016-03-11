@@ -41,11 +41,11 @@ void processNextWord(struct commandData* words, int arg)
 			}
 			return;
 		}
-		printf("read %s \n", buffer);
+		//printf("read %s \n", buffer);
 		
 	for(i = 0; words[i].word != 0 ;i++)
 	{
-		printf("comparing to %s \n", words[i].word);
+		printf("comparing buffer %s to %s \n", buffer, words[i].word);
 		if(strcasecmp(buffer, words[i].word) == 0)
 		{
 			(*words[i].fp)(words[i].nextArray, arg);
