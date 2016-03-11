@@ -36,10 +36,10 @@ void processNextWord(struct commandData* words, int arg)
 	
 	for(i = 0; words[i].word != 0 ;i++)
 	{
-		char * result = fgets(buffer, BUFFER_SIZE, input);
-		if (result == NULL) {
+		
+		if (fscanf(input, "%s", buffer) == 0) {
 			if(!feof(input)) {
-				perror("fgets returned null");
+				perror("returned null");
 			}
 			else {break;}
 			continue;
@@ -50,7 +50,7 @@ void processNextWord(struct commandData* words, int arg)
 			return;
 		}
 	}
-	printf("word %s not found\n", buffer);
+	printf("%s not found\n", buffer);
 }
 
 
