@@ -1,34 +1,53 @@
 #include <stdio.h>
 #include <strings.h>
 #include <stdlib.h>
-
-#define SHOWER 1
-#define JET 2
-#define RAIN 3
-#define MASSAGE 4
+#include <sys/types.h>
+#include <sys/ipc.h>
+#include <sys/shm.h>
+#include "dgs.h"
 
 #define NO_CHANGE -99999
+
+DasaServerInfo * requestState;
 
 int processPositionCommand(int argc,char ** argv);
 
 int doPositionCommand(int x,int y,int z);
 int doOnCommand(void);
+int doShutdown(void);
 int doOffCommand(void);
 int doModeCommand(int mode);
 int doTempCommand(int temp);
 
 int main(int argc,char ** argv)
 {
+    int shmid = shmget(SHARED_KEY, sizeof(DasaServerInfo), 0666);
+    if (shmid  < 0) {
+        perror("dasademo shmget");
+        return -1;
+    }
+
+    /*
+     * Now we attach the segment to our data space.
+     */
+     requestState = shmat(shmid, NULL, 0);
+    if (requestState  == (DasaServerInfo *) -1) {
+        perror("dasademo shmat");
+        return -2;
+    }
+
   if (argc < 2)
     {
       fprintf(stderr,"No argument given to DASA\n");
-      return -1;
+      exit(3);
     }
 
   if (strcasecmp(argv[1],"x") == 0 || strcasecmp(argv[1],"y") == 0 || strcasecmp(argv[1],"z") == 0)
     return processPositionCommand(argc,argv);
   if (strcasecmp(argv[1],"on") == 0)
     return doOnCommand();
+  if (strcasecmp(argv[1],"shutdown") == 0)
+    return doShutdown();
   if (strcasecmp(argv[1],"off") == 0)
     return doOffCommand();
   if (strcasecmp(argv[1],"mode") == 0)
@@ -36,7 +55,7 @@ int main(int argc,char ** argv)
        if (argc < 3)
          {
            fprintf(stderr,"No mode given for MODE command\n");
-           return -1;
+           exit(3);
          }
        if (strcasecmp(argv[2],"shower") == 0)
          return doModeCommand(SHOWER);
@@ -47,7 +66,7 @@ int main(int argc,char ** argv)
        if (strcasecmp(argv[2],"massage") == 0)
          return doModeCommand(MASSAGE);
        fprintf(stderr,"Unknown mode %s given for MODE command\n",argv[2]);
-       return -1;
+       exit(3);
      }
   if (strcasecmp(argv[1],"temp") == 0)
     {
@@ -60,9 +79,14 @@ int main(int argc,char ** argv)
       return doTempCommand(temp);
      }
   fprintf(stderr,"Unknown command %s given to DASA\n",argv[1]);
-  return -1;
+  exit(3);
 }
 
+int doShutdown()
+{
+  requestState->shutdown = 1;
+  return 0;
+}
 
 int processPositionCommand(int argc,char ** argv)
 {
@@ -95,7 +119,7 @@ int doPositionCommand(int x,int y,int z)
           fprintf(stderr,"Invalid x position %d\n",x);
           return -1;
         }
-      printf("Moving X to %d\n",x);
+      requestState->xPos = x;
     }
   if (y != NO_CHANGE)
     {
@@ -104,7 +128,7 @@ int doPositionCommand(int x,int y,int z)
           fprintf(stderr,"Invalid y position %d\n",y);
           return -1;
         }
-      printf("Moving Y to %d\n",y);
+      requestState->yPos = y;
     }
   if (z != NO_CHANGE)
     {
@@ -113,20 +137,20 @@ int doPositionCommand(int x,int y,int z)
           fprintf(stderr,"Invalid y position %d\n",z);
           return -1;
         }
-      printf("Moving Z to %d\n",z);
+      requestState->zPos = z;
     }
     return 0;
 }
    
 int doOnCommand(void)
 {
-  printf("Doing ON command\n");
+  requestState->onOff = ON;
   return 0;
 }
 
 int doOffCommand(void)
 {
-  printf("Doing OFF command\n");
+  requestState->onOff = OFF;
   return 0;
 }
 
@@ -135,16 +159,10 @@ int doModeCommand(int mode)
   switch (mode)
     {
       case JET:
-        printf("Doing MODE JET command\n");
-        break;
       case RAIN:
-        printf("Doing MODE RAIN command\n");
-        break;
       case MASSAGE:
-        printf("Doing MODE MASSAGE command\n");
-        break;
       case SHOWER:
-        printf("Doing MODE SHOWER command\n");
+        requestState->mode = mode;
         break;
       default:
         fprintf(stderr,"Unknown mode value %d\n",mode);
@@ -159,7 +177,7 @@ int doTempCommand(int temp)
       fprintf(stderr,"Unsafe temperature %d given to DASA temperature\n",temp);
       return -1;
     }
-  printf("Doing TEMP %d command\n",temp);
+  requestState->temp = temp;
   return 0;
 }
 
