@@ -14,7 +14,7 @@ struct commandData
 
 void power(struct commandData* words, int arg)
 {
-	printf("in power function: arg = %d", arg);
+	printf("in power function: arg = %d \n", arg);
 	if(arg == 1)
 	{
 		printf("TURNING ON\n");
@@ -48,7 +48,7 @@ void processNextWord(struct commandData* words, int arg)
 		printf("comparing buffer %s to %s \n", buffer, words[i].word);
 		if(strcasecmp(buffer, words[i].word) == 0)
 		{
-			(*words[i].fp)(words[i].nextArray, arg);
+			(*words[i].fp)(words[i].nextArray, words[i].arg);
 			return;
 		}
 	}
