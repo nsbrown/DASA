@@ -12,6 +12,16 @@ struct commandData
 		int arg;
 };
 
+void tempDown(struct commandData* words, int arg)
+{
+	printf("Turning temp down");
+	system("./dasademo temp 75");
+}
+void tempUp(struct commandData* words, int arg)
+{
+	printf("Turning temp up");
+	system("./dasademo temp 80");
+}
 void moveLeft(struct commandData* words, int arg)
 {
 	printf("Moving shower head left\n");
@@ -77,12 +87,18 @@ void processNextWord(struct commandData* words, int arg)
 	}
 	printf("%s not found\n", buffer);
 }
+//--------------Temperature Array-----------------
+struct commandData tempArray [] =
+{
+	{"UP", tempUp, 0, 5}, {"DOWN", tempDown, 0, -5}, {0,0,0,0}
+};
 
 //--------------Mid Level Secondary Array---------
 struct commandData midLevel[] =
 {
 	{"UP", moveUp, 0, 10}, {"DOWN", moveDown, 0, -10}, {"RIGHT", moveRight, 0, 10}, 
-	{"LEFT", moveLeft, 0, -10}, {0,0,0,0}
+	{"LEFT", moveLeft, 0, -10},  
+	{0,0,0,0}
 //	{"A"}, {""},
 //	{}, {},
 //	{}, {},
@@ -93,6 +109,7 @@ struct commandData midLevel[] =
 struct commandData highLevel[] =
 {
 	{"ON", power, 0 , 1}, {"OFF", power, 0, 0}, {"MOVE", processNextWord, midLevel, 0},
+	{"TEMPERATURE", processNextWord, tempArray, 0}, {"TEMP", processNextWord, tempArray, 0},
 	{0,0,0,0}
 	//{"Move", processNextWord(), }, {"Up", processNextWord(),   },
 	//{"Down", processNextWord(), }, {"Right", processNextWord(),  },
