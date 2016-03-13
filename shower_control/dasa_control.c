@@ -12,15 +12,21 @@ struct commandData
 		int arg;
 };
 
-void tempDown(struct commandData* words, int arg)
+void aLittleUp(struct commandData* words, int arg)
 {
-	printf("Turning temp down");
-	system("./dasademo temp 75");
+	printf("Moving a little up\n");
+	system("./dasademo y 5");
 }
-void tempUp(struct commandData* words, int arg)
+
+void moveBackwards(struct commandData* words, int arg)
 {
-	printf("Turning temp up");
-	system("./dasademo temp 80");
+	printf("Moving backwards\n");
+	system("./dasademo z -10");
+}
+void moveForward(struct commandData* words, int arg)
+{
+	printf("Moving forward\n");
+	system("./dasademo z 10");
 }
 void moveLeft(struct commandData* words, int arg)
 {
@@ -87,29 +93,32 @@ void processNextWord(struct commandData* words, int arg)
 	}
 	printf("%s not found\n", buffer);
 }
-//--------------Temperature Array-----------------
-struct commandData tempArray [] =
-{
-	{"UP", tempUp, 0, 5}, {"DOWN", tempDown, 0, -5}, {0,0,0,0}
-};
 
 //--------------Mid Level Secondary Array---------
 struct commandData midLevel[] =
 {
 	{"UP", moveUp, 0, 10}, {"DOWN", moveDown, 0, -10}, {"RIGHT", moveRight, 0, 10}, 
-	{"LEFT", moveLeft, 0, -10},  
-	{0,0,0,0}
+	{"LEFT", moveLeft, 0, -10}, {0,0,0,0}
 //	{"A"}, {""},
 //	{}, {},
 //	{}, {},
 //	{}, {},
 };
+struct commandData increment[] =
+{
+	{"UP", aLittleUp, 0, 5}, {0,0,0,0}
 
+};
+//--------------Higher Additional------------------
+struct commandData higherAdd[] = 
+{
+	{"LITTLE", processNextWord, increment, 0}, {"LOT", processNextWord, increment, 0}, {0,0,0,0}
+};
 //--------------High Level Array-------------------
 struct commandData highLevel[] =
 {
-	{"ON", power, 0 , 1}, {"OFF", power, 0, 0}, {"MOVE", processNextWord, midLevel, 0},
-	{"TEMPERATURE", processNextWord, tempArray, 0}, {"TEMP", processNextWord, tempArray, 0},
+	{"ON", power, 0 , 1}, {"OFF", power, 0, 0}, {"MOVE", processNextWord, midLevel, 0}, {"FORWARD", moveForward, 0, 10},
+	{"BACKWARDS",moveBackwards, 0, -10},{"A", processNextWord, higherAdd, 0},
 	{0,0,0,0}
 	//{"Move", processNextWord(), }, {"Up", processNextWord(),   },
 	//{"Down", processNextWord(), }, {"Right", processNextWord(),  },
@@ -125,15 +134,12 @@ struct commandData highLevel[] =
 
 //--------------Name Array-------------------------
 struct commandData dasaNames[] = 
-{	//{"Daisy",proccessNextWord(),highLevel}, 
-	//{"Donald" proccessNextWord(), highLevel},
+{	
 	{"DASA", processNextWord, highLevel, 0}, 
+	{"DONALD", processNextWord, highLevel, 0},
+	{"DAISY", processNextWord, highLevel, 0},
 	{0,0,0,0}
 };
-
-
-
-//--------------
 
 
 int main()
@@ -148,6 +154,7 @@ int main()
 	}
 	return EXIT_SUCCESS;
 }
+
 
 
 
