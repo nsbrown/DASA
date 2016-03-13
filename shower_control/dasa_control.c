@@ -12,6 +12,29 @@ struct commandData
 		int arg;
 };
 
+void moveLeft(struct commandData* words, int arg)
+{
+	printf("Moving shower head left\n");
+	system("./dasademo x -10");
+}
+void moveRight(struct commandData* words, int arg)
+{
+	printf("Moving shower head right\n");
+	system("./dasademo x 10");
+}
+
+void moveDown(struct commandData* words, int arg)
+{
+	printf("Moving shower head down\n");
+	system("./dasademo -10");
+}
+
+void moveUp(struct commandData* words, int arg)
+{
+	printf("Moving the shower head up\n");
+	system("./dasademo y 10");
+}
+
 void power(struct commandData* words, int arg)
 {
 	printf("in power function: arg = %d \n", arg);
@@ -55,11 +78,21 @@ void processNextWord(struct commandData* words, int arg)
 	printf("%s not found\n", buffer);
 }
 
+//--------------Mid Level Secondary Array---------
+struct commandData midLevel[] =
+{
+	{"UP", moveUp, 0, 10}, {"DOWN", moveDown, 0, -10}, {"RIGHT", moveRight, 0, 10}, 
+	{"LEFT", moveLeft, 0, -10}, {0,0,0,0}
+//	{"A"}, {""},
+//	{}, {},
+//	{}, {},
+//	{}, {},
+};
 
 //--------------High Level Array-------------------
 struct commandData highLevel[] =
 {
-	{"ON", power, 0 , 1}, {"OFF", power, 0, 0},
+	{"ON", power, 0 , 1}, {"OFF", power, 0, 0}, {"MOVE", processNextWord, midLevel, 0},
 	{0,0,0,0}
 	//{"Move", processNextWord(), }, {"Up", processNextWord(),   },
 	//{"Down", processNextWord(), }, {"Right", processNextWord(),  },
@@ -72,14 +105,6 @@ struct commandData highLevel[] =
 	//{"Cool"}, {"Heat"},
 	
 };
-//--------------High Level Secondary Array--------
-//struct commandData highLevelSec[] =
-//{
-//	{"A"}, {""},
-//	{}, {},
-//	{}, {},
-//	{}, {},
-//};
 
 //--------------Name Array-------------------------
 struct commandData dasaNames[] = 
