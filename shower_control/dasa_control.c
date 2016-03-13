@@ -14,7 +14,7 @@ struct commandData
 
 void power(struct commandData* words, int arg)
 {
-	
+	printf("in power function: arg = %d", arg);
 	if(arg == 1)
 	{
 		printf("TURNING ON\n");
@@ -97,8 +97,7 @@ struct commandData dasaNames[] =
 int main()
 {
 	
-	//sleep(500);
-	printf("RUNNING COMMAND SCRIPT");
+	printf("RUNNING COMMAND SCRIPT\n");
 
 	for(;;)
 	{
