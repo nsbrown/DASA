@@ -117,19 +117,10 @@ struct commandData higherAdd[] =
 //--------------High Level Array-------------------
 struct commandData highLevel[] =
 {
-	{"ON", power, 0 , 1}, {"OFF", power, 0, 0}, {"MOVE", processNextWord, midLevel, 0}, {"FORWARD", moveForward, 0, 10},
-	{"BACKWARDS",moveBackwards, 0, -10},{"A", processNextWord, higherAdd, 0},
+	{"ON", power, 0 , 1}, {"OFF", power, 0, 0}, {"FORWARD", moveForward, 0, 10}, {"BACKWARDS",moveBackwards, 0, -10},
+	{"MOVE", processNextWord, midLevel, 0},
+	{"A", processNextWord, higherAdd, 0}, {"MUCH", processNextWord, higherAdd, 0},
 	{0,0,0,0}
-	//{"Move", processNextWord(), }, {"Up", processNextWord(),   },
-	//{"Down", processNextWord(), }, {"Right", processNextWord(),  },
-	//{"Left"}, {"Motion"},
-	//{"Manuever"}, {"Forward"},
-	//{"Back"}, {"Backwards"},
-	//{"Temp"}, {"Temperature"},
-	//{"Hotter"}, {"Warmer"},
-	//{"Colder"}, {"Cooler"},
-	//{"Cool"}, {"Heat"},
-	
 };
 
 //--------------Name Array-------------------------
