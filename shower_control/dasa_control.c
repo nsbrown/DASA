@@ -12,16 +12,20 @@ struct commandData
 		int arg;
 };
 
-void aLittleUp(struct commandData* words, int arg)
+void tempUp(struct commandData* words, int arg)
 {
-	printf("Moving a little up\n");
-	system("./dasademo y 5");
+	char string[32];
 }
-
+void tempDown(struct commandData* words, int arg)
+{
+	
+}
 void moveBackwards(struct commandData* words, int arg)
 {
+	char string[32];
 	printf("Moving backwards\n");
-	system("./dasademo z -10");
+	sprintf(string, "./dasademo z %d", arg);
+	system(string);
 }
 void moveForward(struct commandData* words, int arg)
 {
@@ -94,38 +98,83 @@ void processNextWord(struct commandData* words, int arg)
 	printf("%s not found\n", buffer);
 }
 
-//--------------Mid Level Secondary Array---------
-struct commandData midLevel[] =
+//-------------Temp Small Incremental-------------------
+struct commandData tempSmallInc[] =
 {
-	{"UP", moveUp, 0, 10}, {"DOWN", moveDown, 0, -10}, {"RIGHT", moveRight, 0, 10}, 
-	{"LEFT", moveLeft, 0, -10}, {0,0,0,0}
-//	{"A"}, {""},
-//	{}, {},
-//	{}, {},
-//	{}, {},
+	{"UP", tempUp, 0, 82}, {"DOWN", tempDown, 0, 72}, {"COOLER", tempDown, 0, 72},
+	{"COLDER", tempDown, 0, 72}, {"WARMER", tempUp, 0, 82}, {"HOTTER", tempUp, 0, 82},
+	{0,0,0,0}
+
 };
-struct commandData increment[] =
+//--------------Temp Higher Additional------------------
+struct commandData tempLargeInc[] = 
 {
-	{"UP", aLittleUp, 0, 5}, {0,0,0,0}
+	{"UP", tempUp, 0, 85}, {"DOWN", tempDown, 0, 70}, {"COOLER", tempDown, 0, 70},
+	{"COLDER", tempDown, 0, 70}, {"WARMER", tempUp, 0, 85}, {"HOTTER", tempUp, 0, 85},
+	{0,0,0,0}
+};
+//--------------Temp Filler Array-----------------------
+struct commandData tempFiller[] =
+{
+	{"LITTLE", processNextWord, tempSmallInc, 0}, {"LOT", processNextWord, tempLargeInc, 0},
+	{0,0,0,0}
+
+};
+//-------------Temperature-------------------------
+struct commandData tempArray[] =
+{
+	{"UP", tempUp, 0, 80}, {"DOWN", tempDown, 0, 75}, {"WARMER", tempUp, 0, 80},
+	{"HOTTER", tempUp, 0, 80}, {"COOLER", tempDown, 0, 75}, {"COLDER", tempDown, 0, 75},
+	{"A", processNextWord, tempFiller, 0}, {0,0,0,0}
+};
+//-------------Small Incremental-------------------
+struct commandData smallInc[] =
+{
+	{"UP", moveUp, 0, 5}, {"DOWN", moveDown, 0, -5}, {"RIGHT", moveRight, 0, 5},
+	{"LEFT", moveLeft, 0, -5}, {"FORWARD", moveForward, 0, 5}, {"BACKWARDS", moveBackwards, 0, -5},
+	{"HIGHER", moveUp, 0, 5}, {"LOWER", moveDown, 0, -5}, {0,0,0,0}
 
 };
 //--------------Higher Additional------------------
-struct commandData higherAdd[] = 
+struct commandData largeInc[] = 
 {
-	{"LITTLE", processNextWord, increment, 0}, {"LOT", processNextWord, increment, 0}, {0,0,0,0}
+	{"UP", moveUp, 0, 15}, {"DOWN", moveDown, 0, -15}, {"RIGHT", moveRight, 0, 15},
+	{"LEFT", moveLeft, 0, -15}, {"FORWARD", moveForward, 0, 15}, {"BACKWARDS", moveBackwards, 0, -15},
+	{"HIGHER", moveUp, 0, 15}, {"LOWER", moveDown, 0, -15}, {0,0,0,0}
 };
+//--------------Filler Array-----------------------
+struct commandData fillerArray[] =
+{
+	{"LITTLE", processNextWord, smallInc, 0}, {"LOT", processNextWord, largeInc, 0},
+	{0,0,0,0}
+
+};
+//--------------Move Array-------------------------
+struct commandData moveArray[] =
+{
+	{"A", processNextWord, fillerArray, 0}, {"UP", moveUp, 0, 10}, {"SLIGHTLY", processNextWord, smallInc, 0},
+	{"DOWN", moveDown, 0, -10}, {"RIGHT", moveRight, 0, 10}, {"LEFT", moveLeft, 0, -10}, 
+	{"FORWARD", moveForward, 0, 10},{"BACKWARDS", moveBackwards, 0, -10}, {"MUCH", processNextWord, largeInc, 0},
+	{0,0,0,0}
+};
+
 //--------------High Level Array-------------------
 struct commandData highLevel[] =
 {
 	{"ON", power, 0 , 1}, {"OFF", power, 0, 0}, {"FORWARD", moveForward, 0, 10}, {"BACKWARDS",moveBackwards, 0, -10},
-	{"MOVE", processNextWord, midLevel, 0},
-	{"A", processNextWord, higherAdd, 0}, {"MUCH", processNextWord, higherAdd, 0},
+	{"LEFT", moveLeft, 0, -10}, {"RIGHT", moveRight, 0, 10}, {"UP", moveUp, 0, 10}, 
+	{"DOWN", moveDown, 0, -10}, {"MOVE", processNextWord, moveArray, 0}, {"A", processNextWord, fillerArray, 0},
+	{"SLIGHTLY", processNextWord, smallInc, 0}, {"MUCH", processNextWord, largeInc, 0},
+	
+	{"TEMP", processNextWord, tempArray, 0}, {"TEMPERATURE", processNextWord, tempArray, 0}, {"WARMER", tempUp, 0, 80},
+	{"HOTTER", tempUp, 0, 80}, {"COOLER", tempDown, 0, 75}, {"COLDER", tempDown, 0, 75},
 	{0,0,0,0}
 };
 
 //--------------Name Array-------------------------
 struct commandData dasaNames[] = 
 { 
+	{"DASA", processNextWord, highLevel, 0},
 	{"DONALD", processNextWord, highLevel, 0},
 	{"DAISY", processNextWord, highLevel, 0},
 	{0,0,0,0}
