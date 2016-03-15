@@ -1,0 +1,8 @@
+#JSGF V1.0;
+/**
+ * JSGF Grammar for DASA VCS
+ */
+ 
+ grammar dasa;
+ 
+ public <command> = ( Donald | Daisy ) ( Up | Down | Left | Right | Forward | Backward );

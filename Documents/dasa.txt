@@ -1,16 +1,8 @@
-Dasa On
-Dasa Off
-Dasa Stop
-Dasa Reset
-Dasa Back
-Dasa Forward
-Dasa Left
-Dasa Right
-Dasa Down
-Dasa Up
-Dasa Mode Shower
-Dasa Mode Jet
-Dasa Mode Massage
-Dasa Mode Rain
-Dasa Temperature Lower
-Dasa Temperature Higher
+Donald 
+Daisy
+Up
+Down
+Left
+Right
+Forward
+Backward
