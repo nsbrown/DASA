@@ -17,7 +17,7 @@ Current configuration:
 -cmninit		8.0		40,3,-1
 -compallsen		no		no
 -debug					0
--dict					dasa.dic
+-dict					dasa_simple.dic
 -dictcase		no		no
 -dither			no		no
 -doublebw		no		no
@@ -39,7 +39,7 @@ Current configuration:
 -fwdtree		yes		yes
 -hmm					/usr/local/share/pocketsphinx/model/en-us/en-us
 -input_endian		little		little
--jsgf					
+-jsgf					dasa.gram
 -keyphrase				
 -kws					
 -kws_delay		10		10
@@ -49,7 +49,7 @@ Current configuration:
 -lda					
 -ldadim			0		0
 -lifter			0		22
--lm					dasa.lm
+-lm					
 -lmctl					
 -lmname					
 -logbase		1.0001		1.000100e+00
@@ -142,10 +142,10 @@ INFO: ptm_mgau.c(563): Rows: 128, Columns: 5126
 INFO: ptm_mgau.c(595): Using memory-mapped I/O for senones
 INFO: ptm_mgau.c(835): Maximum top-N: 4
 INFO: phone_loop_search.c(114): State beam -225 Phone exit beam -225 Insertion penalty 0
-INFO: dict.c(320): Allocating 4123 * 20 bytes (80 KiB) for word entries
-INFO: dict.c(333): Reading main dictionary: dasa.dic
+INFO: dict.c(320): Allocating 4112 * 20 bytes (80 KiB) for word entries
+INFO: dict.c(333): Reading main dictionary: dasa_simple.dic
 INFO: dict.c(213): Allocated 0 KiB for strings, 0 KiB for phones
-INFO: dict.c(336): 22 words read
+INFO: dict.c(336): 11 words read
 INFO: dict.c(358): Reading filler dictionary: /usr/local/share/pocketsphinx/model/en-us/en-us/noisedict
 INFO: dict.c(213): Allocated 0 KiB for strings, 0 KiB for phones
 INFO: dict.c(361): 5 words read
@@ -153,171 +153,169 @@ INFO: dict2pid.c(396): Building PID tables for dictionary
 INFO: dict2pid.c(406): Allocating 42^3 * 2 bytes (144 KiB) for word-initial triphones
 INFO: dict2pid.c(132): Allocated 21336 bytes (20 KiB) for word-final triphones
 INFO: dict2pid.c(196): Allocated 21336 bytes (20 KiB) for single-phone word triphones
-INFO: ngram_model_trie.c(456): Trying to read LM in trie binary format
-INFO: ngram_model_trie.c(467): Header doesn't match
-INFO: ngram_model_trie.c(189): Trying to read LM in arpa format
-INFO: ngram_model_trie.c(205): LM of order 3
-INFO: ngram_model_trie.c(207): #1-grams: 21
-INFO: ngram_model_trie.c(207): #2-grams: 35
-INFO: ngram_model_trie.c(207): #3-grams: 34
-INFO: lm_trie.c(399): Training quantizer
-INFO: lm_trie.c(407): Building LM trie
-INFO: ngram_search_fwdtree.c(99): 21 unique initial diphones
-INFO: ngram_search_fwdtree.c(148): 0 root, 0 non-root channels, 6 single-phone words
-INFO: ngram_search_fwdtree.c(186): Creating search tree
-INFO: ngram_search_fwdtree.c(192): before: 0 root, 0 non-root channels, 6 single-phone words
-INFO: ngram_search_fwdtree.c(326): after: max nonroot chan increased to 165
-INFO: ngram_search_fwdtree.c(339): after: 21 root, 37 non-root channels, 5 single-phone words
-INFO: ngram_search_fwdflat.c(157): fwdflat: min_ef_width = 4, max_sf_win = 25
+INFO: jsgf.c(706): Defined rule: <dasa.g00000>
+INFO: jsgf.c(706): Defined rule: <dasa.g00001>
+INFO: jsgf.c(706): Defined rule: PUBLIC <dasa.command>
+INFO: fsg_model.c(208): Computing transitive closure for null transitions
+INFO: fsg_model.c(270): 0 null transitions added
+INFO: fsg_search.c(227): FSG(beam: -1080, pbeam: -1080, wbeam: -634; wip: -26, pip: 0)
+INFO: fsg_model.c(423): Adding silence transitions for <sil> to FSG
+INFO: fsg_model.c(443): Added 3 silence word transitions
+INFO: fsg_model.c(423): Adding silence transitions for <sil> to FSG
+INFO: fsg_model.c(443): Added 3 silence word transitions
+INFO: fsg_model.c(423): Adding silence transitions for [NOISE] to FSG
+INFO: fsg_model.c(443): Added 3 silence word transitions
+INFO: fsg_search.c(173): Added 1 alternate word transitions
+INFO: fsg_lextree.c(110): Allocated 258 bytes (0 KiB) for left and right context phones
+INFO: fsg_lextree.c(256): 61 HMM nodes in lextree (31 leaves)
+INFO: fsg_lextree.c(259): Allocated 7320 bytes (7 KiB) for all lextree nodes
+INFO: fsg_lextree.c(262): Allocated 3720 bytes (3 KiB) for lextree leafnodes
 INFO: continuous.c(307): pocketsphinx_continuous COMPILED ON: Jan 31 2016, AT: 21:35:16
 
 INFO: continuous.c(252): Ready....
 INFO: continuous.c(261): Listening...
-Input overrun, read calls are too rare (non-fatal)
 INFO: cmn_prior.c(131): cmn_prior_update: from < 40.00  3.00 -1.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00 >
-INFO: cmn_prior.c(149): cmn_prior_update: to   < 26.56 -19.66 -5.18 -2.87 -5.38 -0.93 -1.53 -4.09  2.88 -1.52 -2.14  2.35 -1.30 >
-INFO: ngram_search_fwdtree.c(1553):      371 words recognized (5/fr)
-INFO: ngram_search_fwdtree.c(1555):     8539 senones evaluated (107/fr)
-INFO: ngram_search_fwdtree.c(1559):     3180 channels searched (39/fr), 1596 1st, 403 last
-INFO: ngram_search_fwdtree.c(1562):      384 words for which last channels evaluated (4/fr)
-INFO: ngram_search_fwdtree.c(1564):      170 candidate words for entering last phone (2/fr)
-INFO: ngram_search_fwdtree.c(1567): fwdtree 0.61 CPU 0.762 xRT
-INFO: ngram_search_fwdtree.c(1570): fwdtree 1.73 wall 2.165 xRT
-INFO: ngram_search_fwdflat.c(302): Utterance vocabulary contains 2 words
-INFO: ngram_search_fwdflat.c(948):      371 words recognized (5/fr)
-INFO: ngram_search_fwdflat.c(950):      693 senones evaluated (9/fr)
-INFO: ngram_search_fwdflat.c(952):      383 channels searched (4/fr)
-INFO: ngram_search_fwdflat.c(954):      383 words searched (4/fr)
-INFO: ngram_search_fwdflat.c(957):       76 word transitions (0/fr)
-INFO: ngram_search_fwdflat.c(960): fwdflat 0.05 CPU 0.063 xRT
-INFO: ngram_search_fwdflat.c(963): fwdflat 0.05 wall 0.058 xRT
-INFO: ngram_search.c(1253): lattice start node <s>.0 end node </s>.31
-INFO: ngram_search.c(1279): Eliminated 0 nodes before end node
-INFO: ngram_search.c(1384): Lattice has 84 nodes, 45 links
-INFO: ps_lattice.c(1380): Bestpath score: -527
-INFO: ps_lattice.c(1384): Normalizer P(O) = alpha(</s>:31:78) = -50166
-INFO: ps_lattice.c(1441): Joint P(O,S) = -58994 P(S|O) = -8828
-INFO: ngram_search.c(875): bestpath 0.00 CPU 0.000 xRT
-INFO: ngram_search.c(878): bestpath 0.00 wall 0.001 xRT
+INFO: cmn_prior.c(149): cmn_prior_update: to   < 10.27 -23.98 -5.84 -8.86 -4.34 -3.96  0.44  2.39  1.01 -3.07 -3.32  1.00  4.54 >
+INFO: fsg_search.c(843): 90 frames, 617 HMMs (6/fr), 3051 senones (33/fr), 89 history entries (0/fr)
+
+ERROR: "fsg_search.c", line 913: Final result does not match the grammar in frame 90
+INFO: continuous.c(275): Ready....
+INFO: continuous.c(261): Listening...
+INFO: cmn_prior.c(131): cmn_prior_update: from < 10.27 -23.98 -5.84 -8.86 -4.34 -3.96  0.44  2.39  1.01 -3.07 -3.32  1.00  4.54 >
+INFO: cmn_prior.c(149): cmn_prior_update: to   < 34.47 -10.79 -7.81 -0.82 -9.26  3.02 -3.27 -3.44  4.49  1.03  0.08  1.21  1.13 >
+INFO: fsg_search.c(843): 240 frames, 4055 HMMs (16/fr), 12211 senones (50/fr), 494 history entries (2/fr)
+
+INFO: continuous.c(275): Ready....
+INFO: continuous.c(261): Listening...
+INFO: cmn_prior.c(131): cmn_prior_update: from < 34.47 -10.79 -7.81 -0.82 -9.26  3.02 -3.27 -3.44  4.49  1.03  0.08  1.21  1.13 >
+INFO: cmn_prior.c(149): cmn_prior_update: to   < 38.69 -5.33 -8.71  0.61 -12.15  2.27 -2.51 -4.89  4.54  0.12  0.01  2.13  1.01 >
+INFO: fsg_search.c(843): 153 frames, 1587 HMMs (10/fr), 6078 senones (39/fr), 259 history entries (1/fr)
+
+INFO: continuous.c(275): Ready....
+INFO: continuous.c(261): Listening...
+INFO: cmn_prior.c(131): cmn_prior_update: from < 38.69 -5.33 -8.71  0.61 -12.15  2.27 -2.51 -4.89  4.54  0.12  0.01  2.13  1.01 >
+INFO: cmn_prior.c(149): cmn_prior_update: to   < 40.61 -3.93 -8.72  0.88 -12.23  2.82 -2.57 -5.24  4.44  1.22  0.65  1.99  0.60 >
+INFO: fsg_search.c(843): 185 frames, 1180 HMMs (6/fr), 5312 senones (28/fr), 206 history entries (1/fr)
+
+INFO: continuous.c(275): Ready....
+INFO: continuous.c(261): Listening...
+INFO: cmn_prior.c(99): cmn_prior_update: from < 40.61 -3.93 -8.72  0.88 -12.23  2.82 -2.57 -5.24  4.44  1.22  0.65  1.99  0.60 >
+INFO: cmn_prior.c(116): cmn_prior_update: to   < 41.56 -2.82 -9.17  1.26 -14.54  2.80 -1.14 -5.28  3.28  2.21  1.42  2.83  0.19 >
+INFO: cmn_prior.c(131): cmn_prior_update: from < 41.56 -2.82 -9.17  1.26 -14.54  2.80 -1.14 -5.28  3.28  2.21  1.42  2.83  0.19 >
+INFO: cmn_prior.c(149): cmn_prior_update: to   < 40.60 -2.69 -9.02  1.26 -14.23  2.80 -1.21 -4.93  3.11  2.16  1.27  2.78  0.09 >
+INFO: fsg_search.c(843): 129 frames, 1574 HMMs (12/fr), 5432 senones (42/fr), 319 history entries (2/fr)
+
+INFO: continuous.c(275): Ready....
+INFO: continuous.c(261): Listening...
+INFO: cmn_prior.c(131): cmn_prior_update: from < 40.60 -2.69 -9.02  1.26 -14.23  2.80 -1.21 -4.93  3.11  2.16  1.27  2.78  0.09 >
+INFO: cmn_prior.c(149): cmn_prior_update: to   < 41.18 -2.89 -9.05  3.92 -12.81  1.45 -1.77 -3.73  1.45  0.85  2.62  1.83 -0.28 >
+INFO: fsg_search.c(843): 143 frames, 1948 HMMs (13/fr), 6417 senones (44/fr), 416 history entries (2/fr)
+
 INFO: continuous.c(275): Ready....
 INFO: continuous.c(261): Listening...
 Input overrun, read calls are too rare (non-fatal)
-Input overrun, read calls are too rare (non-fatal)
-INFO: cmn_prior.c(131): cmn_prior_update: from < 26.56 -19.66 -5.18 -2.87 -5.38 -0.93 -1.53 -4.09  2.88 -1.52 -2.14  2.35 -1.30 >
-INFO: cmn_prior.c(149): cmn_prior_update: to   < 47.49 -14.34 -12.20  2.30 -3.20  6.02 -3.89  3.59  2.09  1.61 -0.05  2.78 -1.57 >
-INFO: ngram_search_fwdtree.c(1553):     1082 words recognized (5/fr)
-INFO: ngram_search_fwdtree.c(1555):    39553 senones evaluated (185/fr)
-INFO: ngram_search_fwdtree.c(1559):    20786 channels searched (97/fr), 4409 1st, 11543 last
-INFO: ngram_search_fwdtree.c(1562):     1469 words for which last channels evaluated (6/fr)
-INFO: ngram_search_fwdtree.c(1564):     1785 candidate words for entering last phone (8/fr)
-INFO: ngram_search_fwdtree.c(1567): fwdtree 1.69 CPU 0.790 xRT
-INFO: ngram_search_fwdtree.c(1570): fwdtree 6.59 wall 3.082 xRT
-INFO: ngram_search_fwdflat.c(302): Utterance vocabulary contains 6 words
-INFO: ngram_search_fwdflat.c(948):     1036 words recognized (5/fr)
-INFO: ngram_search_fwdflat.c(950):    16772 senones evaluated (78/fr)
-INFO: ngram_search_fwdflat.c(952):    11494 channels searched (53/fr)
-INFO: ngram_search_fwdflat.c(954):     1457 words searched (6/fr)
-INFO: ngram_search_fwdflat.c(957):      394 word transitions (1/fr)
-INFO: ngram_search_fwdflat.c(960): fwdflat 0.47 CPU 0.220 xRT
-INFO: ngram_search_fwdflat.c(963): fwdflat 0.47 wall 0.220 xRT
-INFO: ngram_search.c(1253): lattice start node <s>.0 end node </s>.176
-INFO: ngram_search.c(1279): Eliminated 1 nodes before end node
-INFO: ngram_search.c(1384): Lattice has 296 nodes, 233 links
-INFO: ps_lattice.c(1380): Bestpath score: -3066
-INFO: ps_lattice.c(1384): Normalizer P(O) = alpha(</s>:176:212) = -207904
-INFO: ps_lattice.c(1441): Joint P(O,S) = -219660 P(S|O) = -11756
-INFO: ngram_search.c(875): bestpath 0.00 CPU 0.000 xRT
-INFO: ngram_search.c(878): bestpath 0.00 wall 0.001 xRT
+INFO: cmn_prior.c(99): cmn_prior_update: from < 41.18 -2.89 -9.05  3.92 -12.81  1.45 -1.77 -3.73  1.45  0.85  2.62  1.83 -0.28 >
+INFO: cmn_prior.c(116): cmn_prior_update: to   < 40.82 -2.40 -10.18  4.93 -11.34  0.03 -2.56 -3.81  0.55  0.93  2.03  2.47 -0.58 >
+INFO: cmn_prior.c(131): cmn_prior_update: from < 40.82 -2.40 -10.18  4.93 -11.34  0.03 -2.56 -3.81  0.55  0.93  2.03  2.47 -0.58 >
+INFO: cmn_prior.c(149): cmn_prior_update: to   < 39.45 -2.73 -9.36  5.24 -10.12  0.44 -2.33 -3.05  0.62  1.55  1.97  2.75 -0.51 >
+INFO: fsg_search.c(843): 189 frames, 5212 HMMs (27/fr), 14806 senones (78/fr), 833 history entries (4/fr)
+
 INFO: continuous.c(275): Ready....
-Input overrun, read calls are too rare (non-fatal)
 INFO: continuous.c(261): Listening...
-Input overrun, read calls are too rare (non-fatal)
-Input overrun, read calls are too rare (non-fatal)
-INFO: cmn_prior.c(131): cmn_prior_update: from < 47.49 -14.34 -12.20  2.30 -3.20  6.02 -3.89  3.59  2.09  1.61 -0.05  2.78 -1.57 >
-INFO: cmn_prior.c(149): cmn_prior_update: to   < 50.74 -13.79 -11.85  4.79 -0.61  5.22 -3.23  3.63  3.24  3.46 -0.79  0.91 -1.83 >
-INFO: ngram_search_fwdtree.c(1553):     1181 words recognized (6/fr)
-INFO: ngram_search_fwdtree.c(1555):    39170 senones evaluated (189/fr)
-INFO: ngram_search_fwdtree.c(1559):    21125 channels searched (102/fr), 4263 1st, 11960 last
-INFO: ngram_search_fwdtree.c(1562):     1494 words for which last channels evaluated (7/fr)
-INFO: ngram_search_fwdtree.c(1564):     1536 candidate words for entering last phone (7/fr)
-INFO: ngram_search_fwdtree.c(1567): fwdtree 1.83 CPU 0.884 xRT
-INFO: ngram_search_fwdtree.c(1570): fwdtree 11.94 wall 5.770 xRT
-INFO: ngram_search_fwdflat.c(302): Utterance vocabulary contains 12 words
-INFO: ngram_search_fwdflat.c(948):     1176 words recognized (6/fr)
-INFO: ngram_search_fwdflat.c(950):    25800 senones evaluated (125/fr)
-INFO: ngram_search_fwdflat.c(952):    22960 channels searched (110/fr)
-INFO: ngram_search_fwdflat.c(954):     1940 words searched (9/fr)
-INFO: ngram_search_fwdflat.c(957):      643 word transitions (3/fr)
-INFO: ngram_search_fwdflat.c(960): fwdflat 0.63 CPU 0.304 xRT
-INFO: ngram_search_fwdflat.c(963): fwdflat 0.63 wall 0.304 xRT
-INFO: ngram_search.c(1253): lattice start node <s>.0 end node </s>.180
-INFO: ngram_search.c(1279): Eliminated 1 nodes before end node
-INFO: ngram_search.c(1384): Lattice has 212 nodes, 387 links
-INFO: ps_lattice.c(1380): Bestpath score: -5269
-INFO: ps_lattice.c(1384): Normalizer P(O) = alpha(</s>:180:205) = -268658
-INFO: ps_lattice.c(1441): Joint P(O,S) = -309757 P(S|O) = -41099
-INFO: ngram_search.c(875): bestpath 0.01 CPU 0.005 xRT
-INFO: ngram_search.c(878): bestpath 0.00 wall 0.002 xRT
+INFO: cmn_prior.c(131): cmn_prior_update: from < 39.45 -2.73 -9.36  5.24 -10.12  0.44 -2.33 -3.05  0.62  1.55  1.97  2.75 -0.51 >
+INFO: cmn_prior.c(149): cmn_prior_update: to   < 39.99 -1.31 -10.00  4.92 -9.89  0.47 -2.61 -3.53  1.05  0.83  1.55  3.51  0.15 >
+INFO: fsg_search.c(843): 104 frames, 1478 HMMs (14/fr), 4567 senones (43/fr), 163 history entries (1/fr)
+
 INFO: continuous.c(275): Ready....
-Input overrun, read calls are too rare (non-fatal)
 INFO: continuous.c(261): Listening...
-Input overrun, read calls are too rare (non-fatal)
-Input overrun, read calls are too rare (non-fatal)
-INFO: cmn_prior.c(131): cmn_prior_update: from < 50.74 -13.79 -11.85  4.79 -0.61  5.22 -3.23  3.63  3.24  3.46 -0.79  0.91 -1.83 >
-INFO: cmn_prior.c(149): cmn_prior_update: to   < 51.42 -10.97 -13.49  3.59 -2.32  5.32 -2.32  3.13  1.65  3.92 -0.67  1.67 -1.12 >
-INFO: ngram_search_fwdtree.c(1553):     1427 words recognized (6/fr)
-INFO: ngram_search_fwdtree.c(1555):    47330 senones evaluated (201/fr)
-INFO: ngram_search_fwdtree.c(1559):    29007 channels searched (123/fr), 4670 1st, 19769 last
-INFO: ngram_search_fwdtree.c(1562):     1810 words for which last channels evaluated (7/fr)
-INFO: ngram_search_fwdtree.c(1564):     1471 candidate words for entering last phone (6/fr)
-INFO: ngram_search_fwdtree.c(1567): fwdtree 1.89 CPU 0.804 xRT
-INFO: ngram_search_fwdtree.c(1570): fwdtree 10.70 wall 4.553 xRT
-INFO: ngram_search_fwdflat.c(302): Utterance vocabulary contains 14 words
-INFO: ngram_search_fwdflat.c(948):     1430 words recognized (6/fr)
-INFO: ngram_search_fwdflat.c(950):    46731 senones evaluated (199/fr)
-INFO: ngram_search_fwdflat.c(952):    39744 channels searched (169/fr)
-INFO: ngram_search_fwdflat.c(954):     2733 words searched (11/fr)
-INFO: ngram_search_fwdflat.c(957):     1196 word transitions (5/fr)
-INFO: ngram_search_fwdflat.c(960): fwdflat 0.78 CPU 0.332 xRT
-INFO: ngram_search_fwdflat.c(963): fwdflat 0.78 wall 0.332 xRT
-INFO: ngram_search.c(1253): lattice start node <s>.0 end node </s>.231
-INFO: ngram_search.c(1279): Eliminated 2 nodes before end node
-INFO: ngram_search.c(1384): Lattice has 256 nodes, 578 links
-INFO: ps_lattice.c(1380): Bestpath score: -6490
-INFO: ps_lattice.c(1384): Normalizer P(O) = alpha(</s>:231:233) = -318965
-INFO: ps_lattice.c(1441): Joint P(O,S) = -377291 P(S|O) = -58326
-INFO: ngram_search.c(875): bestpath 0.00 CPU 0.000 xRT
-INFO: ngram_search.c(878): bestpath 0.01 wall 0.002 xRT
+INFO: cmn_prior.c(99): cmn_prior_update: from < 39.99 -1.31 -10.00  4.92 -9.89  0.47 -2.61 -3.53  1.05  0.83  1.55  3.51  0.15 >
+INFO: cmn_prior.c(116): cmn_prior_update: to   < 38.61 -3.47 -8.95  4.70 -8.78  0.98 -2.08 -4.25  1.06  0.33  2.87  2.58 -0.68 >
+INFO: cmn_prior.c(131): cmn_prior_update: from < 38.61 -3.47 -8.95  4.70 -8.78  0.98 -2.08 -4.25  1.06  0.33  2.87  2.58 -0.68 >
+INFO: cmn_prior.c(149): cmn_prior_update: to   < 41.88 -1.97 -9.03  6.36 -7.58 -0.90 -3.41 -4.75  1.29 -2.34  1.55  2.99 -1.23 >
+INFO: fsg_search.c(843): 281 frames, 2332 HMMs (8/fr), 7876 senones (28/fr), 700 history entries (2/fr)
+
 INFO: continuous.c(275): Ready....
-Input overrun, read calls are too rare (non-fatal)
 INFO: continuous.c(261): Listening...
-INFO: cmn_prior.c(99): cmn_prior_update: from < 51.42 -10.97 -13.49  3.59 -2.32  5.32 -2.32  3.13  1.65  3.92 -0.67  1.67 -1.12 >
-INFO: cmn_prior.c(116): cmn_prior_update: to   < 51.76 -10.95 -13.37  3.70 -2.07  5.48 -2.29  3.15  1.63  4.11 -0.49  1.52 -1.05 >
-Input overrun, read calls are too rare (non-fatal)
-INFO: cmn_prior.c(131): cmn_prior_update: from < 51.76 -10.95 -13.37  3.70 -2.07  5.48 -2.29  3.15  1.63  4.11 -0.49  1.52 -1.05 >
-INFO: cmn_prior.c(149): cmn_prior_update: to   < 54.16 -10.48 -13.13  1.76 -0.98  5.55 -2.08  4.23  1.64  4.31 -0.30  0.84 -1.21 >
-INFO: ngram_search_fwdtree.c(1553):      869 words recognized (6/fr)
-INFO: ngram_search_fwdtree.c(1555):    32490 senones evaluated (212/fr)
-INFO: ngram_search_fwdtree.c(1559):    18395 channels searched (120/fr), 2995 1st, 12048 last
-INFO: ngram_search_fwdtree.c(1562):     1143 words for which last channels evaluated (7/fr)
-INFO: ngram_search_fwdtree.c(1564):     1146 candidate words for entering last phone (7/fr)
-INFO: ngram_search_fwdtree.c(1567): fwdtree 1.30 CPU 0.850 xRT
-INFO: ngram_search_fwdtree.c(1570): fwdtree 7.11 wall 4.646 xRT
-INFO: ngram_search_fwdflat.c(302): Utterance vocabulary contains 8 words
-INFO: ngram_search_fwdflat.c(948):      787 words recognized (5/fr)
-INFO: ngram_search_fwdflat.c(950):    24243 senones evaluated (158/fr)
-INFO: ngram_search_fwdflat.c(952):    18586 channels searched (121/fr)
-INFO: ngram_search_fwdflat.c(954):     1497 words searched (9/fr)
-INFO: ngram_search_fwdflat.c(957):      543 word transitions (3/fr)
-INFO: ngram_search_fwdflat.c(960): fwdflat 0.53 CPU 0.346 xRT
-INFO: ngram_search_fwdflat.c(963): fwdflat 0.52 wall 0.342 xRT
-INFO: ngram_search.c(1253): lattice start node <s>.0 end node </s>.141
-INFO: ngram_search.c(1279): Eliminated 1 nodes before end node
-INFO: ngram_search.c(1384): Lattice has 158 nodes, 354 links
-INFO: ps_lattice.c(1380): Bestpath score: -3855
-INFO: ps_lattice.c(1384): Normalizer P(O) = alpha(</s>:141:151) = -215563
-INFO: ps_lattice.c(1441): Joint P(O,S) = -248904 P(S|O) = -33341
-INFO: ngram_search.c(875): bestpath 0.00 CPU 0.000 xRT
-INFO: ngram_search.c(878): bestpath 0.00 wall 0.002 xRT
+INFO: cmn_prior.c(99): cmn_prior_update: from < 41.88 -1.97 -9.03  6.36 -7.58 -0.90 -3.41 -4.75  1.29 -2.34  1.55  2.99 -1.23 >
+INFO: cmn_prior.c(116): cmn_prior_update: to   < 44.74 -1.67 -8.65  7.97 -6.60 -1.64 -4.59 -5.92  3.55 -4.65  1.24  2.49 -1.96 >
+INFO: cmn_prior.c(131): cmn_prior_update: from < 44.74 -1.67 -8.65  7.97 -6.60 -1.64 -4.59 -5.92  3.55 -4.65  1.24  2.49 -1.96 >
+INFO: cmn_prior.c(149): cmn_prior_update: to   < 43.43 -1.55 -8.48  7.61 -6.27 -1.49 -4.61 -5.80  3.56 -4.53  1.22  2.53 -1.95 >
+INFO: fsg_search.c(843): 176 frames, 1770 HMMs (10/fr), 6384 senones (36/fr), 380 history entries (2/fr)
+
 INFO: continuous.c(275): Ready....
-Input overrun, read calls are too rare (non-fatal)
+INFO: continuous.c(261): Listening...
+INFO: cmn_prior.c(131): cmn_prior_update: from < 43.43 -1.55 -8.48  7.61 -6.27 -1.49 -4.61 -5.80  3.56 -4.53  1.22  2.53 -1.95 >
+INFO: cmn_prior.c(149): cmn_prior_update: to   < 45.64 -1.97 -8.59  7.71 -9.06 -2.68 -3.28 -4.86  2.74 -5.32  1.73  1.70 -1.91 >
+INFO: fsg_search.c(843): 161 frames, 1524 HMMs (9/fr), 5378 senones (33/fr), 342 history entries (2/fr)
+
+INFO: continuous.c(275): Ready....
+INFO: continuous.c(261): Listening...
+INFO: cmn_prior.c(99): cmn_prior_update: from < 45.64 -1.97 -8.59  7.71 -9.06 -2.68 -3.28 -4.86  2.74 -5.32  1.73  1.70 -1.91 >
+INFO: cmn_prior.c(116): cmn_prior_update: to   < 46.94 -0.83 -9.24  6.50 -13.37 -3.06 -1.36 -4.52  2.79 -4.61  1.65  1.51 -1.35 >
+INFO: cmn_prior.c(131): cmn_prior_update: from < 46.94 -0.83 -9.24  6.50 -13.37 -3.06 -1.36 -4.52  2.79 -4.61  1.65  1.51 -1.35 >
+INFO: cmn_prior.c(149): cmn_prior_update: to   < 44.86 -0.81 -8.61  5.03 -12.57 -2.74 -1.43 -4.66  2.51 -4.12  1.70  1.40 -1.28 >
+INFO: fsg_search.c(843): 162 frames, 1082 HMMs (6/fr), 4177 senones (25/fr), 227 history entries (1/fr)
+
+INFO: continuous.c(275): Ready....
+INFO: continuous.c(261): Listening...
+INFO: cmn_prior.c(131): cmn_prior_update: from < 44.86 -0.81 -8.61  5.03 -12.57 -2.74 -1.43 -4.66  2.51 -4.12  1.70  1.40 -1.28 >
+INFO: cmn_prior.c(149): cmn_prior_update: to   < 45.68  0.31 -8.98  4.82 -16.03 -1.92  0.19 -4.35  1.36 -2.22  2.29  2.30 -1.60 >
+INFO: fsg_search.c(843): 139 frames, 1518 HMMs (10/fr), 5412 senones (38/fr), 300 history entries (2/fr)
+
+INFO: continuous.c(275): Ready....
+INFO: continuous.c(261): Listening...
+INFO: cmn_prior.c(131): cmn_prior_update: from < 45.68  0.31 -8.98  4.82 -16.03 -1.92  0.19 -4.35  1.36 -2.22  2.29  2.30 -1.60 >
+INFO: cmn_prior.c(149): cmn_prior_update: to   < 44.88 -1.11 -8.58  3.58 -14.81 -2.07 -0.58 -4.25  1.42 -2.61  1.98  2.29 -1.52 >
+INFO: fsg_search.c(843): 89 frames, 2169 HMMs (24/fr), 6266 senones (70/fr), 387 history entries (4/fr)
+
+INFO: continuous.c(275): Ready....
+INFO: continuous.c(261): Listening...
+INFO: cmn_prior.c(99): cmn_prior_update: from < 44.88 -1.11 -8.58  3.58 -14.81 -2.07 -0.58 -4.25  1.42 -2.61  1.98  2.29 -1.52 >
+INFO: cmn_prior.c(116): cmn_prior_update: to   < 44.12 -1.71 -8.27  3.61 -14.25 -2.29 -0.86 -4.33  1.29 -2.70  1.77  2.19 -1.29 >
+INFO: cmn_prior.c(131): cmn_prior_update: from < 44.12 -1.71 -8.27  3.61 -14.25 -2.29 -0.86 -4.33  1.29 -2.70  1.77  2.19 -1.29 >
+INFO: cmn_prior.c(149): cmn_prior_update: to   < 40.24 -4.05 -8.11  2.52 -12.60 -3.77 -3.12 -3.12  1.55 -3.30  1.70  1.19  0.35 >
+INFO: fsg_search.c(843): 138 frames, 4109 HMMs (29/fr), 11077 senones (80/fr), 789 history entries (5/fr)
+
+INFO: continuous.c(275): Ready....
+INFO: continuous.c(261): Listening...
+INFO: cmn_prior.c(99): cmn_prior_update: from < 40.24 -4.05 -8.11  2.52 -12.60 -3.77 -3.12 -3.12  1.55 -3.30  1.70  1.19  0.35 >
+INFO: cmn_prior.c(116): cmn_prior_update: to   < 42.07 -3.33 -8.20  4.47 -10.97 -3.37 -3.69 -4.23  1.60 -3.38  1.70  0.47  0.38 >
+INFO: cmn_prior.c(131): cmn_prior_update: from < 42.07 -3.33 -8.20  4.47 -10.97 -3.37 -3.69 -4.23  1.60 -3.38  1.70  0.47  0.38 >
+INFO: cmn_prior.c(149): cmn_prior_update: to   < 40.76 -3.20 -8.25  4.23 -10.43 -2.98 -3.52 -3.95  1.59 -3.13  1.80  0.52  0.56 >
+INFO: fsg_search.c(843): 203 frames, 1885 HMMs (9/fr), 6865 senones (33/fr), 327 history entries (1/fr)
+
+INFO: continuous.c(275): Ready....
+INFO: continuous.c(261): Listening...
+INFO: cmn_prior.c(131): cmn_prior_update: from < 40.76 -3.20 -8.25  4.23 -10.43 -2.98 -3.52 -3.95  1.59 -3.13  1.80  0.52  0.56 >
+INFO: cmn_prior.c(149): cmn_prior_update: to   < 39.10 -5.63 -7.20  3.66 -8.60 -2.85 -3.39 -3.54  1.86 -3.17  1.28  0.10  0.75 >
+INFO: fsg_search.c(843): 88 frames, 2183 HMMs (24/fr), 6137 senones (69/fr), 359 history entries (4/fr)
+
+INFO: continuous.c(275): Ready....
+INFO: continuous.c(261): Listening...
+INFO: cmn_prior.c(131): cmn_prior_update: from < 39.10 -5.63 -7.20  3.66 -8.60 -2.85 -3.39 -3.54  1.86 -3.17  1.28  0.10  0.75 >
+INFO: cmn_prior.c(149): cmn_prior_update: to   < 41.73 -5.34 -8.26  5.33 -8.27 -3.79 -4.00 -3.66  1.93 -3.46  0.85  0.28 -0.07 >
+INFO: fsg_search.c(843): 195 frames, 1957 HMMs (10/fr), 7078 senones (36/fr), 313 history entries (1/fr)
+
+INFO: continuous.c(275): Ready....
+INFO: cmn_prior.c(99): cmn_prior_update: from < 41.73 -5.34 -8.26  5.33 -8.27 -3.79 -4.00 -3.66  1.93 -3.46  0.85  0.28 -0.07 >
+INFO: cmn_prior.c(116): cmn_prior_update: to   < 41.53 -5.33 -8.18  5.22 -8.20 -3.77 -3.93 -3.61  1.93 -3.39  0.89  0.27 -0.09 >
+INFO: continuous.c(261): Listening...
+INFO: cmn_prior.c(131): cmn_prior_update: from < 41.53 -5.33 -8.18  5.22 -8.20 -3.77 -3.93 -3.61  1.93 -3.39  0.89  0.27 -0.09 >
+INFO: cmn_prior.c(149): cmn_prior_update: to   < 39.52 -7.02 -7.87  4.72 -7.39 -4.76 -3.86 -2.34  1.38 -3.52  0.30  0.21  0.07 >
+INFO: fsg_search.c(843): 81 frames, 2248 HMMs (27/fr), 6150 senones (75/fr), 322 history entries (3/fr)
+
+INFO: continuous.c(275): Ready....
+INFO: continuous.c(261): Listening...
+INFO: cmn_prior.c(131): cmn_prior_update: from < 39.52 -7.02 -7.87  4.72 -7.39 -4.76 -3.86 -2.34  1.38 -3.52  0.30  0.21  0.07 >
+INFO: cmn_prior.c(149): cmn_prior_update: to   < 43.94 -5.41 -9.92  7.79 -6.86 -6.67 -5.24 -2.99  1.01 -3.49 -1.13  0.01 -0.95 >
+INFO: fsg_search.c(843): 194 frames, 2766 HMMs (14/fr), 9018 senones (46/fr), 473 history entries (2/fr)
+
+INFO: continuous.c(275): Ready....
+INFO: continuous.c(261): Listening...
+INFO: cmn_prior.c(99): cmn_prior_update: from < 43.94 -5.41 -9.92  7.79 -6.86 -6.67 -5.24 -2.99  1.01 -3.49 -1.13  0.01 -0.95 >
+INFO: cmn_prior.c(116): cmn_prior_update: to   < 44.02 -5.25 -9.80  7.94 -6.26 -7.01 -5.44 -3.02  0.93 -3.22 -1.25 -0.14 -0.91 >
+INFO: cmn_prior.c(131): cmn_prior_update: from < 44.02 -5.25 -9.80  7.94 -6.26 -7.01 -5.44 -3.02  0.93 -3.22 -1.25 -0.14 -0.91 >
+INFO: cmn_prior.c(149): cmn_prior_update: to   < 42.81 -6.58 -10.47  6.12 -6.44 -7.08 -4.14 -2.74  1.07 -2.46 -1.44 -0.50 -1.01 >
+INFO: fsg_search.c(843): 99 frames, 924 HMMs (9/fr), 3545 senones (35/fr), 144 history entries (1/fr)
+
+INFO: continuous.c(275): Ready....

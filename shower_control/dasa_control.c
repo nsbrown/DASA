@@ -125,8 +125,7 @@ struct commandData highLevel[] =
 
 //--------------Name Array-------------------------
 struct commandData dasaNames[] = 
-{	
-	{"DASA", processNextWord, highLevel, 0}, 
+{ 
 	{"DONALD", processNextWord, highLevel, 0},
 	{"DAISY", processNextWord, highLevel, 0},
 	{0,0,0,0}

@@ -5,4 +5,4 @@
  
  grammar dasa;
  
- public <command> = ( Donald | Daisy ) ( Up | Down | Left | Right | Forward | Backward );
+ public <command> = ( DONALD | DAISY ) ( ON | OFF | UP | DOWN | LEFT | RIGHT | FORWARD | BACKWARDS);
