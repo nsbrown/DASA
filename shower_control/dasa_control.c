@@ -29,8 +29,10 @@ void moveBackwards(struct commandData* words, int arg)
 }
 void moveForward(struct commandData* words, int arg)
 {
+	char string[32];
 	printf("Moving forward\n");
-	system("./dasademo z 10");
+	sprintf(string, "./dasademo z %d", arg);
+	system(string);
 }
 void moveLeft(struct commandData* words, int arg)
 {
