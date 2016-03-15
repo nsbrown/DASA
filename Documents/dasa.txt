@@ -5,4 +5,6 @@ Down
 Left
 Right
 Forward
-Backward
+Backwards
+Off
+On
