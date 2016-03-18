@@ -132,7 +132,7 @@ struct commandData tempFiller[] =
 	{0,0,0,0}
 
 };
-//-------------Temperature-------------------------
+//-------------Temp Array-------------------------
 struct commandData tempArray[] =
 {
 	{"UP", tempUp, 0, 80}, {"DOWN", tempDown, 0, 75}, {"WARMER", tempUp, 0, 80},
