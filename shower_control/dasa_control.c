@@ -11,6 +11,14 @@ struct commandData
 		struct commandData* nextArray;	
 		int arg;
 };
+
+void toDasaDemo(char* string, int arg)
+{
+	char str[32];
+	sprintf(str, "./dasademo %s %d", string, arg);
+	system(string);
+	
+}
 void mode(struct commandData* words, int arg)
 {
 	switch(arg)
@@ -30,13 +38,6 @@ void mode(struct commandData* words, int arg)
 		default:
 				printf("error");
 	}
-	
-}
-void toDasaDemo(char* string, int arg)
-{
-	char str[32];
-	sprintf(str, "./dasademo %s %d", string, arg);
-	system(string);
 	
 }
 void tempUp(struct commandData* words, int arg)
