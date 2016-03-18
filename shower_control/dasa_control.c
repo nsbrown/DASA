@@ -11,6 +11,27 @@ struct commandData
 		struct commandData* nextArray;	
 		int arg;
 };
+void mode(struct commandData* words, int arg)
+{
+	switch(arg)
+	{
+		case 0:
+				system("./dasademo SHOWER");
+				break;
+		case 1:
+				system("./dasademo RAIN");
+				break;
+		case 2: 
+				system("./dasademo MASSAGE");
+				break;
+		case 3:
+				system("./dasademo JET");
+				break;
+		default:
+				printf("error");
+	}
+	
+}
 void toDasaDemo(char* string, int arg)
 {
 	char str[32];
@@ -110,6 +131,19 @@ void processNextWord(struct commandData* words, int arg)
 	printf("%s not found\n", buffer);
 }
 
+struct commandData headMode [] =
+{
+	{"SHOWER", mode, 0, 0}, {"RAIN", mode, 0, 1}, 
+	{"MASSAGE", mode, 0, 2}, {"JET", mode, 0, 3},
+	{0,0,0,0}
+	
+};
+struct commandData showerHeadMode [] =
+{
+	{"MODE", processNextWord, headMode, 0}, {"SHOWER", mode, 0, 0}, {"RAIN", mode, 0, 1}, 
+	{"MASSAGE", mode, 0, 2}, {"JET", mode, 0, 3}, {0,0,0,0}
+	
+};
 //-------------Temp Small Incremental-------------------
 struct commandData tempSmallInc[] =
 {
@@ -180,6 +214,9 @@ struct commandData highLevel[] =
 	
 	{"TEMP", processNextWord, tempArray, 0}, {"TEMPERATURE", processNextWord, tempArray, 0}, {"WARMER", tempUp, 0, 80},
 	{"HOTTER", tempUp, 0, 80}, {"COOLER", tempDown, 0, 75}, {"COLDER", tempDown, 0, 75},
+	
+	{"MODE", processNextWord, headMode, 0}, {"SHOWER", mode, 0, 0}, {"RAIN", mode, 0, 1}, 
+	{"MASSAGE", mode, 0, 2}, {"JET", mode, 0, 3},
 	{0,0,0,0}
 };
 
@@ -205,7 +242,6 @@ int main()
 	}
 	return EXIT_SUCCESS;
 }
-
 
 
 
