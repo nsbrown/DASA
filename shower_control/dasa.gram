@@ -10,7 +10,7 @@
  public <firstnext> = (MOVE (<movefinal> | <movenext>)) | (A <anext>) | ((SLIGHTLY | MUCH) <incrementfinal>) | ((TEMP | TEMPERATURE) (<tempfinal> | <tempanext>)) | (MODE <modefinal>);
  public <movenext> = ((SLIGHTLY | MUCH) <incrementfinal>) | (A <anext>);
  public <anext> = (LITTLE | LOT) <incrementfinal>;
- public <tempanext = A (LITTLE | LOT) <tempfinal>;
+ public <tempanext> = A (LITTLE | LOT) <tempfinal>;
  
  public <firstfinal> = ON | OFF | FORWARD | BACKWARDS | COOLER | COLDER | HOTTER | WARMER | <modefinal> | <movefinal>;
  public <incrementfinal> = HIGHER | LOWER | FORWARD | BACKWARDS | <movefinal>;
