@@ -4,6 +4,7 @@
 
 #define BUFFER_SIZE 256
 
+char address[] = 
 struct commandData 
 {
 		char* word;
@@ -16,9 +17,10 @@ void toDasaDemo(char* string, int arg)
 {
 	char str[32];
 	sprintf(str, "./dasademo %s %d", string, arg);
-	system(string);
+	system(str);
 	
 }
+
 void mode(struct commandData* words, int arg)
 {
 	switch(arg)
