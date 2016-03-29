@@ -18,12 +18,12 @@ void toDasaDemo(char* string, int arg)
 	char str[32];
 	if(arg != -1)
 	{
-		sprintf(str, "ssh ./dasademo %s %d", string, arg);
+		sprintf(str, "./dasademo %s %d", string, arg);
 		system(str);
 	}
 	else if(arg == -1)
 	{
-		sprintf(str, "ssh ./dasademo %s", string);
+		sprintf(str, "./dasademo %s", string);
 	}
 	
 }
