@@ -1,0 +1,19 @@
+#JSGF V1.0;
+/**
+ * JSGF Grammar for DASA VCS
+ */
+ 
+ grammar dasa;
+ 
+ public <command> = <names> [<fillers>] (<firstfinal> | <firstnext>);
+ <names> = DONALD | DAISY | DASA;
+ <fillers> = (A (LITTLE | LOT)) | SLIGHTLY | MUCH;
+ <firstnext> = (MOVE (<movefinal> | <movenext>)) | <fillers> (<incrementfinal> | <tempfinal>) | ((SLIGHTLY | MUCH) <incrementfinal>) | ((TEMP | TEMPERATURE) (<tempfinal> | <tempanext>)) | (MODE <modefinal>);
+ <movenext> = ((SLIGHTLY | MUCH) <incrementfinal>) | (A <anext>);
+ <tempanext> = A (LITTLE | LOT) <tempfinal>;
+ 
+ <firstfinal> = ON | OFF | FORWARD | BACKWARDS | COOLER | COLDER | HOTTER | WARMER | <modefinal> | <movefinal>;
+ <incrementfinal> = HIGHER | LOWER | FORWARD | BACKWARDS | <movefinal>;
+ <movefinal> = UP | DOWN | LEFT | RIGHT;
+ <tempfinal> = UP | DOWN | WARMER | HOTTER | COOLER | COLDER;
+ <modefinal> = SHOWER | RAIN | JET | MASSAGE;
