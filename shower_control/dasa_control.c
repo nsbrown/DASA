@@ -13,6 +13,7 @@ struct commandData
 		int arg;
 };
 
+/*
 void toDasaDemo(char* string, int arg)
 {
 	char str[32];
@@ -28,26 +29,26 @@ void toDasaDemo(char* string, int arg)
 	}
 	
 }
-
+*/
 void mode(struct commandData* words, int arg)
 {
 	switch(arg)
 	{
 		case 0:
-				//system("./dasademo SHOWER");
-				toDasaDemo("SHOWER", -1);
+				system("./dasademo SHOWER");
+				//toDasaDemo("SHOWER", -1);
 				break;
 		case 1:
-				//system("./dasademo RAIN");
-				toDasaDemo("Rain", -1);
+				system("./dasademo RAIN");
+				//toDasaDemo("Rain", -1);
 				break;
 		case 2: 
-				//system("./dasademo MASSAGE");
-				toDasaDemo("MASSAGE", -1);
+				system("./dasademo MASSAGE");
+				//toDasaDemo("MASSAGE", -1);
 				break;
 		case 3:
-				//system("./dasademo JET");
-				toDasaDemo("JET", -1);
+				system("./dasademo JET");
+				//toDasaDemo("JET", -1);
 				break;
 		default:
 				printf("error");
@@ -57,48 +58,48 @@ void mode(struct commandData* words, int arg)
 void tempUp(struct commandData* words, int arg)
 {
 	printf("Turning temp up");
-	toDasaDemo("temp", arg);
+	//toDasaDemo("temp", arg);
 }
 void tempDown(struct commandData* words, int arg)
 {
 	printf("Turning temp down");
-	toDasaDemo("temp", arg);
+	//toDasaDemo("temp", arg);
 }
 void moveBackwards(struct commandData* words, int arg)
 {
 	printf("Moving backwards\n");
-	toDasaDemo("z", arg);
+	//toDasaDemo("z", arg);
 }
 void moveForward(struct commandData* words, int arg)
 {
 	printf("Moving forward\n");
-	toDasaDemo("z", arg);
+	//toDasaDemo("z", arg);
 }
 void moveLeft(struct commandData* words, int arg)
 {
 	printf("Moving shower head left\n");
 	//system("./dasademo x -10");
-	toDasaDemo("x", arg);
+	//toDasaDemo("x", arg);
 }
 void moveRight(struct commandData* words, int arg)
 {
 	printf("Moving shower head right\n");
-	toDasaDemo("x", arg);
+	//toDasaDemo("x", arg);
 	//system("./dasademo x 10");
 }
 
 void moveDown(struct commandData* words, int arg)
 {
 	printf("Moving shower head down\n");
-	//system("./dasademo -10");
-	toDasaDemo("y", arg);
+	system("./dasademo -10");
+	//toDasaDemo("y", arg);
 }
 
 void moveUp(struct commandData* words, int arg)
 {
 	printf("Moving the shower head up\n");
-	//system("./dasademo y 10");
-	toDasaDemo("y", arg);
+	system("./dasademo y 10");
+	//toDasaDemo("y", arg);
 }
 
 void power(struct commandData* words, int arg)
@@ -107,14 +108,14 @@ void power(struct commandData* words, int arg)
 	if(arg == 1)
 	{
 		printf("TURNING ON\n");
-		//system("./dasademo ON");
-		toDasaDemo("ON", -1);
+		system("./dasademo ON");
+		//toDasaDemo("ON", -1);
 	}
 	else if(arg == 0)
 	{
 		printf("TURNING OFF\n");
-		//system("./dasademo OFF");
-		toDasaDemo("OFF", -1);
+		system("./dasademo OFF");
+		//toDasaDemo("OFF", -1);
 	}
 }
 
