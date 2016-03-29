@@ -16,38 +16,37 @@ struct commandData
 void toDasaDemo(char* string, int arg)
 {
 	char str[32];
-	if(arg != -1)
-	{
 		sprintf(str, "./dasademo %s %d", string, arg);
 		system(str);
-	}
-	else if(arg == -1)
-	{
-		sprintf(str, "./dasademo %s", string);
-		system(str);
-	}
 	
 }
 
+void toDasaDemostr(char *string, char*secondString)
+{
+	char str[32];
+	sprintf(str, "./dasademo %s %s", string, secondString);
+	system(str);
+
+}
 void mode(struct commandData* words, int arg)
 {
 	switch(arg)
 	{
 		case 0:
 				//system("./dasademo SHOWER");
-				toDasaDemo("SHOWER", -1);
+				toDasaDemostr("MODE", "SHOWER");
 				break;
 		case 1:
 				//system("./dasademo RAIN");
-				toDasaDemo("Rain", -1);
+				toDasaDemostr("MODE", "RAIN");
 				break;
 		case 2: 
 				//system("./dasademo MASSAGE");
-				toDasaDemo("MASSAGE", -1);
+				toDasaDemostr("MODE", "MASSAGE");
 				break;
 		case 3:
 				//system("./dasademo JET");
-				toDasaDemo("JET", -1);
+				toDasaDemostr("MODE", "JET");
 				break;
 		default:
 				printf("error");
