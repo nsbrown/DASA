@@ -5,15 +5,13 @@
  
  grammar dasa;
  
- public <command> = DONALD | DAISY | DASA (<firstfinal> | <firstnext>);
+ <name> = DONALD | DAISY | DASA;
+ <mode> = RAIN | JET | MASSAGE | SHOWER;
+ <move> = UP | DOWN | LEFT | RIGHT;
+ <inc> = SLIGHTLY | MUCH | (A (LITTLE | LOT));
+ <inc_move> = HIGHER | LOWER | FORWARD | BACKWARDS | <move>;
+ <temp> = UP | DOWN | WARMER | HOTTER | COOLER | COLDER;
+ <first> = ON | OFF | FORWARD | BACKWARDS | COOLER | COLDER | HOTTER | WARMER | <move> | <mode>;
+ <second> = (MOVE ((<inc> <inc_move>) | <move>)) | (<inc> (<inc_move> | <temp>)) | ((TEMP | TEMPERATURE) [<inc>] <temp>) | (MODE <mode>);
  
- public <firstnext> = (MOVE (<movefinal> | <movenext>)) | (A <anext>) | ((SLIGHTLY | MUCH) <incrementfinal>) | ((TEMP | TEMPERATURE) (<tempfinal> | <tempanext>)) | (MODE <modefinal>);
- public <movenext> = ((SLIGHTLY | MUCH) <incrementfinal>) | (A <anext>);
- public <anext> = (LITTLE | LOT) <incrementfinal>;
- public <tempanext> = A (LITTLE | LOT) <tempfinal>;
- 
- public <firstfinal> = ON | OFF | FORWARD | BACKWARDS | COOLER | COLDER | HOTTER | WARMER | <modefinal> | <movefinal>;
- public <incrementfinal> = HIGHER | LOWER | FORWARD | BACKWARDS | <movefinal>;
- public <movefinal> = UP | DOWN | LEFT | RIGHT;
- public <tempfinal> = UP | DOWN | WARMER | HOTTER | COOLER | COLDER;
- public <modefinal> = SHOWER | RAIN | JET | MASSAGE;
+ public <command> = <name> (<first> | <second>);
