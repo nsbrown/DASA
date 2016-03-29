@@ -5,7 +5,7 @@
  
  grammar dasa;
  
- public <command> = (DONALD | DAISY | DASA) (<firstfinal> | <firstnext>);
+ public <command> = DONALD | DAISY | DASA (<firstfinal> | <firstnext>);
  
  public <firstnext> = (MOVE (<movefinal> | <movenext>)) | (A <anext>) | ((SLIGHTLY | MUCH) <incrementfinal>) | ((TEMP | TEMPERATURE) (<tempfinal> | <tempanext>)) | (MODE <modefinal>);
  public <movenext> = ((SLIGHTLY | MUCH) <incrementfinal>) | (A <anext>);
