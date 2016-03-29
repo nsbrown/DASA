@@ -4,7 +4,7 @@
 
 #define BUFFER_SIZE 256
 
-char address[] = 
+
 struct commandData 
 {
 		char* word;
