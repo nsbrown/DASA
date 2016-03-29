@@ -24,6 +24,7 @@ void toDasaDemo(char* string, int arg)
 	else if(arg == -1)
 	{
 		sprintf(str, "./dasademo %s", string);
+		system(str);
 	}
 	
 }
