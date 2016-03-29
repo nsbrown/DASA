@@ -3,6 +3,7 @@
 #include <stdlib.h>
 
 #define BUFFER_SIZE 256
+char address[] = {"155.42.107.134"};
 
 struct commandData 
 {
@@ -15,37 +16,38 @@ struct commandData
 void toDasaDemo(char* string, int arg)
 {
 	char str[32];
-	if(arg != -1)
-	{
-		sprintf(str, "ssh ./dasademo %s %d", string, arg);
-		system(str);
-	}
-	else if(arg == -1)
-	{
-		sprintf(str, "ssh ./dasademo %s", string);
-	}
+	//sprintf(str, "./dasademo %s %d", string, arg);
+	sprintf(str, "ssh -p 22 %s \"./dasademo %s %d\"", address, string, arg);
+	system(str);
 	
 }
 
+void toDasaDemostr(char *string, char*secondString)
+{
+	char str[32];
+	sprintf(str, "ssh -p 22 %s \"./dasademo %s %s\"", address, string, secondString);
+	system(str);
+
+}
 void mode(struct commandData* words, int arg)
 {
 	switch(arg)
 	{
 		case 0:
 				//system("./dasademo SHOWER");
-				todasademo("SHOWER", -1);
+				toDasaDemostr("MODE", "SHOWER");
 				break;
 		case 1:
 				//system("./dasademo RAIN");
-				todasademo("Rain", -1);
+				toDasaDemostr("MODE", "RAIN");
 				break;
 		case 2: 
 				//system("./dasademo MASSAGE");
-				todasademo("MASSAGE", -1);
+				toDasaDemostr("MODE", "MASSAGE");
 				break;
 		case 3:
 				//system("./dasademo JET");
-				todasademo("JET", -1);
+				toDasaDemostr("MODE", "JET");
 				break;
 		default:
 				printf("error");
