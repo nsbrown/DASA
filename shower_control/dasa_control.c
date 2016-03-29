@@ -34,19 +34,19 @@ void mode(struct commandData* words, int arg)
 	{
 		case 0:
 				//system("./dasademo SHOWER");
-				todasademo("SHOWER", -1);
+				toDasaDemo("SHOWER", -1);
 				break;
 		case 1:
 				//system("./dasademo RAIN");
-				todasademo("Rain", -1);
+				toDasaDemo("Rain", -1);
 				break;
 		case 2: 
 				//system("./dasademo MASSAGE");
-				todasademo("MASSAGE", -1);
+				toDasaDemo("MASSAGE", -1);
 				break;
 		case 3:
 				//system("./dasademo JET");
-				todasademo("JET", -1);
+				toDasaDemo("JET", -1);
 				break;
 		default:
 				printf("error");
