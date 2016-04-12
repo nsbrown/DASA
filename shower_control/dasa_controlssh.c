@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 #define BUFFER_SIZE 256
-char address[] = {"155.42.107.134"};
+char address[] = {"nathanbrown@155.42.107.130"};
 
 struct commandData 
 {
@@ -17,7 +17,10 @@ void toDasaDemo(char* string, int arg)
 {
 	char str[32];
 	//sprintf(str, "./dasademo %s %d", string, arg);
-	sprintf(str, "ssh -p 22 %s \"./dasademo %s %d\"", address, string, arg);
+	sprintf(str, "ssh -i id_rsa %s \"./dasademo %s %d\"", address, string, arg);
+	printf("%s \n", str);
+	system(str);
+	sprintf(str, "ssh -i id_rsa %s \"exit\"", address);
 	system(str);
 	
 }
@@ -25,9 +28,11 @@ void toDasaDemo(char* string, int arg)
 void toDasaDemostr(char *string, char*secondString)
 {
 	char str[32];
-	sprintf(str, "ssh -p 22 %s \"./dasademo %s %s\"", address, string, secondString);
+	sprintf(str, "ssh -i id_rsa %s \"./dasademo %s %s\"", address, string, secondString);
+	printf("%s \n", str);
 	system(str);
-
+	sprintf(str, "ssh -i id_rsa %s \"exit\"", address);
+	system(str);
 }
 void mode(struct commandData* words, int arg)
 {
