@@ -196,17 +196,17 @@ struct commandData tempArray[] =
 //-------------Small Incremental-------------------
 struct commandData smallInc[] =
 {
-	{"UP", moveUp, 0, 5}, {"DOWN", moveDown, 0, -5}, {"RIGHT", moveRight, 0, 5},
+	{"UP", moveUp, 0, -5}, {"DOWN", moveDown, 0, 5}, {"RIGHT", moveRight, 0, 5},
 	{"LEFT", moveLeft, 0, -5}, {"FORWARD", moveForward, 0, 5}, {"BACKWARDS", moveBackwards, 0, -5},
-	{"HIGHER", moveUp, 0, 5}, {"LOWER", moveDown, 0, -5}, {0,0,0,0}
+	{"HIGHER", moveUp, 0, -5}, {"LOWER", moveDown, 0, -5}, {0,0,0,0}
 
 };
 //--------------Higher Additional------------------
 struct commandData largeInc[] = 
 {
-	{"UP", moveUp, 0, 15}, {"DOWN", moveDown, 0, -15}, {"RIGHT", moveRight, 0, 15},
+	{"UP", moveUp, 0, -15}, {"DOWN", moveDown, 0, 15}, {"RIGHT", moveRight, 0, 15},
 	{"LEFT", moveLeft, 0, -15}, {"FORWARD", moveForward, 0, 15}, {"BACKWARDS", moveBackwards, 0, -15},
-	{"HIGHER", moveUp, 0, 15}, {"LOWER", moveDown, 0, -15}, {0,0,0,0}
+	{"HIGHER", moveUp, 0, -15}, {"LOWER", moveDown, 0, 15}, {0,0,0,0}
 };
 //--------------Filler Array-----------------------
 struct commandData fillerArray[] =
@@ -218,8 +218,8 @@ struct commandData fillerArray[] =
 //--------------Move Array-------------------------
 struct commandData moveArray[] =
 {
-	{"A", processNextWord, fillerArray, 0}, {"UP", moveUp, 0, 10}, {"SLIGHTLY", processNextWord, smallInc, 0},
-	{"DOWN", moveDown, 0, -10}, {"RIGHT", moveRight, 0, 10}, {"LEFT", moveLeft, 0, -10}, 
+	{"A", processNextWord, fillerArray, 0}, {"UP", moveUp, 0, -10}, {"SLIGHTLY", processNextWord, smallInc, 0},
+	{"DOWN", moveDown, 0, 10}, {"RIGHT", moveRight, 0, 10}, {"LEFT", moveLeft, 0, -10}, 
 	{"FORWARD", moveForward, 0, 10},{"BACKWARDS", moveBackwards, 0, -10}, {"MUCH", processNextWord, largeInc, 0},
 	{0,0,0,0}
 };
@@ -228,8 +228,8 @@ struct commandData moveArray[] =
 struct commandData highLevel[] =
 {
 	{"ON", power, 0 , 1}, {"OFF", power, 0, 0}, {"FORWARD", moveForward, 0, 10}, {"BACKWARDS",moveBackwards, 0, -10},
-	{"LEFT", moveLeft, 0, -10}, {"RIGHT", moveRight, 0, 10}, {"UP", moveUp, 0, 10}, 
-	{"DOWN", moveDown, 0, -10}, {"MOVE", processNextWord, moveArray, 0}, {"A", processNextWord, fillerArray, 0},
+	{"LEFT", moveLeft, 0, -10}, {"RIGHT", moveRight, 0, 10}, {"UP", moveUp, 0, -10}, 
+	{"DOWN", moveDown, 0, 10}, {"MOVE", processNextWord, moveArray, 0}, {"A", processNextWord, fillerArray, 0},
 	{"SLIGHTLY", processNextWord, smallInc, 0}, {"MUCH", processNextWord, largeInc, 0},
 	
 	{"TEMP", processNextWord, tempArray, 0}, {"TEMPERATURE", processNextWord, tempArray, 0}, {"WARMER", tempUp, 0, 80},
