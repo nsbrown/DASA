@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 #define BUFFER_SIZE 256
-char address[] = {"nathanbrown@155.42.107.130"};
+char address[] = {"nathanbrown@155.42.234.187"};
 
 struct commandData 
 {
@@ -15,7 +15,7 @@ struct commandData
 
 void toDasaDemo(char* string, int arg)
 {
-	char str[32];
+	char str[BUFFER_SIZE];
 	//sprintf(str, "./dasademo %s %d", string, arg);
 	sprintf(str, "ssh -i id_rsa %s \"./dasademo %s %d\"", address, string, arg);
 	printf("%s \n", str);
@@ -27,7 +27,7 @@ void toDasaDemo(char* string, int arg)
 
 void toDasaDemostr(char *string, char*secondString)
 {
-	char str[32];
+	char str[BUFFER_SIZE];
 	sprintf(str, "ssh -i id_rsa %s \"./dasademo %s %s\"", address, string, secondString);
 	printf("%s \n", str);
 	system(str);
