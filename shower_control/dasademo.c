@@ -93,7 +93,8 @@ int processPositionCommand(int argc,char ** argv)
   int x = NO_CHANGE;
   int y = NO_CHANGE;
   int z = NO_CHANGE;
-  for (int i = 1; i < argc; i+= 2)
+  int i;
+  for (i = 1; i < argc; i+= 2)
      {
        if (strcasecmp(argv[i],"x") == 0)
          x = atoi(argv[i+1]);
