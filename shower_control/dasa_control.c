@@ -3,36 +3,28 @@
 #include <stdlib.h>
 
 #define BUFFER_SIZE 256
-char address[] = {"nathanbrown@155.42.234.187"};
+char address[] = {"nathanbrown@155.42.94.59"};
 
-struct commandData 
+struct commandData
 {
 		char* word;
 		void (*fp)(struct commandData*, int);
-		struct commandData* nextArray;	
+		struct commandData* nextArray;
 		int arg;
 };
 
 void toDasaDemo(char* string, int arg)
 {
 	char str[BUFFER_SIZE];
-	//sprintf(str, "./dasademo %s %d", string, arg);
 	sprintf(str, "ssh -i id_rsa %s \"./dasademo %s %d\"", address, string, arg);
-	printf("%s \n", str);
 	system(str);
-	//sprintf(str, "ssh -i id_rsa %s \"exit\"", address);
-	//system(str);
-	
 }
 
 void toDasaDemostr(char *string, char*secondString)
 {
 	char str[BUFFER_SIZE];
 	sprintf(str, "ssh -i id_rsa %s \"./dasademo %s %s\"", address, string, secondString);
-	printf("%s \n", str);
 	system(str);
-	//sprintf(str, "ssh -i id_rsa %s \"exit\"", address);
-	//system(str);
 }
 void mode(struct commandData* words, int arg)
 {
@@ -46,7 +38,7 @@ void mode(struct commandData* words, int arg)
 				//system("./dasademo RAIN");
 				toDasaDemostr("MODE", "RAIN");
 				break;
-		case 2: 
+		case 2:
 				//system("./dasademo MASSAGE");
 				toDasaDemostr("MODE", "MASSAGE");
 				break;
@@ -57,7 +49,7 @@ void mode(struct commandData* words, int arg)
 		default:
 				printf("error");
 	}
-	
+
 }
 void tempUp(struct commandData* words, int arg)
 {
@@ -129,7 +121,7 @@ void processNextWord(struct commandData* words, int arg)
 	input = stdin;
 	char buffer[BUFFER_SIZE];
 	int i;
-	
+
 	if (fscanf(input, "%s", buffer) == 0) {
 			printf("Got end of input\n");
 			if(!feof(input)) {
@@ -138,7 +130,7 @@ void processNextWord(struct commandData* words, int arg)
 			return;
 		}
 		//printf("read %s \n", buffer);
-		
+
 	for(i = 0; words[i].word != 0 ;i++)
 	{
 		printf("comparing buffer %s to %s \n", buffer, words[i].word);
@@ -153,16 +145,16 @@ void processNextWord(struct commandData* words, int arg)
 
 struct commandData headMode [] =
 {
-	{"SHOWER", mode, 0, 0}, {"RAIN", mode, 0, 1}, 
+	{"SHOWER", mode, 0, 0}, {"RAIN", mode, 0, 1},
 	{"MASSAGE", mode, 0, 2}, {"JET", mode, 0, 3},
 	{0,0,0,0}
-	
+
 };
 struct commandData showerHeadMode [] =
 {
 	{"MODE", processNextWord, headMode, 0}, {"SHOWER", mode, 0, 0}, {"RAIN", mode, 0, 1}, 
 	{"MASSAGE", mode, 0, 2}, {"JET", mode, 0, 3}, {0,0,0,0}
-	
+
 };
 //-------------Temp Small Incremental-------------------
 struct commandData tempSmallInc[] =
@@ -173,7 +165,7 @@ struct commandData tempSmallInc[] =
 
 };
 //--------------Temp Higher Additional------------------
-struct commandData tempLargeInc[] = 
+struct commandData tempLargeInc[] =
 {
 	{"UP", tempUp, 0, 85}, {"DOWN", tempDown, 0, 70}, {"COOLER", tempDown, 0, 70},
 	{"COLDER", tempDown, 0, 70}, {"WARMER", tempUp, 0, 85}, {"HOTTER", tempUp, 0, 85},
@@ -231,18 +223,18 @@ struct commandData highLevel[] =
 	{"LEFT", moveLeft, 0, -10}, {"RIGHT", moveRight, 0, 10}, {"UP", moveUp, 0, -10}, 
 	{"DOWN", moveDown, 0, 10}, {"MOVE", processNextWord, moveArray, 0}, {"A", processNextWord, fillerArray, 0},
 	{"SLIGHTLY", processNextWord, smallInc, 0}, {"MUCH", processNextWord, largeInc, 0},
-	
+
 	{"TEMP", processNextWord, tempArray, 0}, {"TEMPERATURE", processNextWord, tempArray, 0}, {"WARMER", tempUp, 0, 80},
 	{"HOTTER", tempUp, 0, 80}, {"COOLER", tempDown, 0, 75}, {"COLDER", tempDown, 0, 75},
-	
+
 	{"MODE", processNextWord, headMode, 0}, {"SHOWER", mode, 0, 0}, {"RAIN", mode, 0, 1}, 
 	{"MASSAGE", mode, 0, 2}, {"JET", mode, 0, 3},
 	{0,0,0,0}
 };
 
 //--------------Name Array-------------------------
-struct commandData dasaNames[] = 
-{ 
+struct commandData dasaNames[] =
+{
 	{"DASA", processNextWord, highLevel, 0},
 	{"DONALD", processNextWord, highLevel, 0},
 	{"DAISY", processNextWord, highLevel, 0},
@@ -252,13 +244,11 @@ struct commandData dasaNames[] =
 
 int main()
 {
-	
 	printf("RUNNING COMMAND SCRIPT\n");
 
 	for(;;)
 	{
 		processNextWord(dasaNames, 0);
-		
 	}
 	return EXIT_SUCCESS;
 }
