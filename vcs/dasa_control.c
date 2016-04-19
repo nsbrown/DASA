@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 #define BUFFER_SIZE 256
-char address[] = {"nathanbrown@155.42.94.59"};
+char address[] = {"nathanbrown@155.42.112.239"};
 
 struct commandData
 {
