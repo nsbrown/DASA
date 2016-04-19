@@ -4,6 +4,10 @@
 
 #define BUFFER_SIZE 256
 char address[] = {"nathanbrown@155.42.112.239"};
+int currentTemp = 75;
+int currentPosition_x = 0;
+int currentPosition_y = 0;
+int currentPosition_z = 0;
 
 struct commandData
 {
@@ -53,49 +57,110 @@ void mode(struct commandData* words, int arg)
 }
 void tempUp(struct commandData* words, int arg)
 {
-	printf("Turning temp up");
-	toDasaDemo("temp", arg);
+	if((currentTemp + arg) < 75 || (currentTemp + arg) > 120)
+	{
+		printf("Unasafe Temperature");
+	}
+	else
+	{
+		currentTemp = currentTemp + arg;
+		printf("Turning temp up");
+		toDasaDemo("temp", currentTemp);
+	}
+	//toDasaDemo("temp", arg);
 }
 void tempDown(struct commandData* words, int arg)
 {
-	printf("Turning temp down");
-	toDasaDemo("temp", arg);
+	if((currentTemp - arg) < 75 || (currentTemp - arg) > 120)
+	{
+		printf("Unasafe Temperature");
+	}
+	else
+	{
+		currentTemp = currentTemp - arg;
+		printf("Turning temp up");
+		toDasaDemo("temp", currentTemp);
+	}
 }
 void moveBackwards(struct commandData* words, int arg)
 {
-	printf("Moving backwards\n");
-	toDasaDemo("z", arg);
+	if ((currentPosition_z - arg) < 0 || (currentPosition_z - arg) > 100)
+	{
+		printf("Invalid z positon %d", (currentPosition_z - arg));
+	}
+	else
+	{
+		currentPosition_z = currentPosition_z - arg;
+		printf("Moving backwards\n");
+		toDasaDemo("z", currentPosition_z);
+	}
 }
 void moveForward(struct commandData* words, int arg)
 {
-	printf("Moving forward\n");
-	toDasaDemo("z", arg);
+	if ((currentPosition_z + arg) < 0 || (currentPosition_z + arg) > 100)
+	{
+		printf("Invalid z positon %d", (currentPosition_z + arg));
+	}
+	else
+	{
+		currentPosition_z = currentPosition_z + arg;
+		printf("Moving forwards\n");
+		toDasaDemo("z", currentPosition_z);
+	}
 }
 void moveLeft(struct commandData* words, int arg)
 {
-	printf("Moving shower head left\n");
-	//system("./dasademo x -10");
-	toDasaDemo("x", arg);
+	if ((currentPosition_x - arg) < -50 || (currentPosition_x - arg) > 50)
+	{
+		printf("Invalid x positon %d", (currentPosition_x - arg));
+	}
+	else
+	{
+		currentPosition_x = currentPosition_x - arg;
+		printf("Moving left\n");
+		toDasaDemo("x", currentPosition_x);
+	}
 }
 void moveRight(struct commandData* words, int arg)
 {
-	printf("Moving shower head right\n");
-	toDasaDemo("x", arg);
-	//system("./dasademo x 10");
+	if ((currentPosition_x + arg) < -50 || (currentPosition_x + arg) > 50)
+	{
+		printf("Invalid x positon %d", (currentPosition_x + arg));
+	}
+	else
+	{
+		currentPosition_x = currentPosition_x + arg;
+		printf("Moving right\n");
+		toDasaDemo("x", currentPosition_x);
+	}
 }
 
 void moveDown(struct commandData* words, int arg)
 {
-	printf("Moving shower head down\n");
-	//system("./dasademo -10");
-	toDasaDemo("y", arg);
+	if ((currentPosition_y - arg) < 0 || (currentPosition_y - arg) > 100)
+	{
+		printf("Invalid y positon %d", (currentPosition_y - arg));
+	}
+	else
+	{
+		currentPosition_y = currentPosition_y - arg;
+		printf("Moving down\n");
+		toDasaDemo("y", currentPosition_y);
+	}
 }
 
 void moveUp(struct commandData* words, int arg)
 {
-	printf("Moving the shower head up\n");
-	//system("./dasademo y 10");
-	toDasaDemo("y", arg);
+	if ((currentPosition_y + arg) < 0 || (currentPosition_y + arg) > 100)
+	{
+		printf("Invalid y positon %d", (currentPosition_y + arg));
+	}
+	else
+	{
+		currentPosition_y = currentPosition_y + arg;
+		printf("Moving down\n");
+		toDasaDemo("y", currentPosition_y);
+	}
 }
 
 void power(struct commandData* words, int arg)
@@ -159,16 +224,16 @@ struct commandData showerHeadMode [] =
 //-------------Temp Small Incremental-------------------
 struct commandData tempSmallInc[] =
 {
-	{"UP", tempUp, 0, 82}, {"DOWN", tempDown, 0, 72}, {"COOLER", tempDown, 0, 72},
-	{"COLDER", tempDown, 0, 72}, {"WARMER", tempUp, 0, 82}, {"HOTTER", tempUp, 0, 82},
+	{"UP", tempUp, 0, 3}, {"DOWN", tempDown, 0, 3}, {"COOLER", tempDown, 0, 3},
+	{"COLDER", tempDown, 0, 3}, {"WARMER", tempUp, 0, 3}, {"HOTTER", tempUp, 0, 3},
 	{0,0,0,0}
 
 };
 //--------------Temp Higher Additional------------------
 struct commandData tempLargeInc[] =
 {
-	{"UP", tempUp, 0, 85}, {"DOWN", tempDown, 0, 70}, {"COOLER", tempDown, 0, 70},
-	{"COLDER", tempDown, 0, 70}, {"WARMER", tempUp, 0, 85}, {"HOTTER", tempUp, 0, 85},
+	{"UP", tempUp, 0, 7}, {"DOWN", tempDown, 0, 7}, {"COOLER", tempDown, 0, 7},
+	{"COLDER", tempDown, 0, 7}, {"WARMER", tempUp, 0, 7}, {"HOTTER", tempUp, 0, 7},
 	{0,0,0,0}
 };
 //--------------Temp Filler Array-----------------------
@@ -181,24 +246,24 @@ struct commandData tempFiller[] =
 //-------------Temp Array-------------------------
 struct commandData tempArray[] =
 {
-	{"UP", tempUp, 0, 80}, {"DOWN", tempDown, 0, 75}, {"WARMER", tempUp, 0, 80},
-	{"HOTTER", tempUp, 0, 80}, {"COOLER", tempDown, 0, 75}, {"COLDER", tempDown, 0, 75},
+	{"UP", tempUp, 0, 5}, {"DOWN", tempDown, 0, 5}, {"WARMER", tempUp, 0, 5},
+	{"HOTTER", tempUp, 0, 5}, {"COOLER", tempDown, 0, 5}, {"COLDER", tempDown, 0, 5},
 	{"A", processNextWord, tempFiller, 0}, {0,0,0,0}
 };
 //-------------Small Incremental-------------------
 struct commandData smallInc[] =
 {
-	{"UP", moveUp, 0, -5}, {"DOWN", moveDown, 0, 5}, {"RIGHT", moveRight, 0, 5},
-	{"LEFT", moveLeft, 0, -5}, {"FORWARD", moveForward, 0, 5}, {"BACKWARDS", moveBackwards, 0, -5},
-	{"HIGHER", moveUp, 0, -5}, {"LOWER", moveDown, 0, -5}, {0,0,0,0}
+	{"UP", moveUp, 0, 5}, {"DOWN", moveDown, 0, 5}, {"RIGHT", moveRight, 0, 5},
+	{"LEFT", moveLeft, 0, 5}, {"FORWARD", moveForward, 0, 5}, {"BACKWARDS", moveBackwards, 0, 5},
+	{"HIGHER", moveUp, 0, 5}, {"LOWER", moveDown, 0, 5}, {0,0,0,0}
 
 };
 //--------------Higher Additional------------------
 struct commandData largeInc[] = 
 {
-	{"UP", moveUp, 0, -15}, {"DOWN", moveDown, 0, 15}, {"RIGHT", moveRight, 0, 15},
-	{"LEFT", moveLeft, 0, -15}, {"FORWARD", moveForward, 0, 15}, {"BACKWARDS", moveBackwards, 0, -15},
-	{"HIGHER", moveUp, 0, -15}, {"LOWER", moveDown, 0, 15}, {0,0,0,0}
+	{"UP", moveUp, 0, 15}, {"DOWN", moveDown, 0, 15}, {"RIGHT", moveRight, 0, 15},
+	{"LEFT", moveLeft, 0, 15}, {"FORWARD", moveForward, 0, 15}, {"BACKWARDS", moveBackwards, 0, 15},
+	{"HIGHER", moveUp, 0, 15}, {"LOWER", moveDown, 0, 15}, {0,0,0,0}
 };
 //--------------Filler Array-----------------------
 struct commandData fillerArray[] =
@@ -210,22 +275,22 @@ struct commandData fillerArray[] =
 //--------------Move Array-------------------------
 struct commandData moveArray[] =
 {
-	{"A", processNextWord, fillerArray, 0}, {"UP", moveUp, 0, -10}, {"SLIGHTLY", processNextWord, smallInc, 0},
-	{"DOWN", moveDown, 0, 10}, {"RIGHT", moveRight, 0, 10}, {"LEFT", moveLeft, 0, -10}, 
-	{"FORWARD", moveForward, 0, 10},{"BACKWARDS", moveBackwards, 0, -10}, {"MUCH", processNextWord, largeInc, 0},
+	{"A", processNextWord, fillerArray, 0}, {"UP", moveUp, 0, 10}, {"SLIGHTLY", processNextWord, smallInc, 0},
+	{"DOWN", moveDown, 0, 10}, {"RIGHT", moveRight, 0, 10}, {"LEFT", moveLeft, 0, 10}, 
+	{"FORWARD", moveForward, 0, 10},{"BACKWARDS", moveBackwards, 0, 10}, {"MUCH", processNextWord, largeInc, 0},
 	{0,0,0,0}
 };
 
 //--------------High Level Array-------------------
 struct commandData highLevel[] =
 {
-	{"ON", power, 0 , 1}, {"OFF", power, 0, 0}, {"FORWARD", moveForward, 0, 10}, {"BACKWARDS",moveBackwards, 0, -10},
-	{"LEFT", moveLeft, 0, -10}, {"RIGHT", moveRight, 0, 10}, {"UP", moveUp, 0, -10}, 
+	{"ON", power, 0 , 1}, {"OFF", power, 0, 0}, {"FORWARD", moveForward, 0, 10}, {"BACKWARDS",moveBackwards, 0, 10},
+	{"LEFT", moveLeft, 0, 10}, {"RIGHT", moveRight, 0, 10}, {"UP", moveUp, 0, 10}, 
 	{"DOWN", moveDown, 0, 10}, {"MOVE", processNextWord, moveArray, 0}, {"A", processNextWord, fillerArray, 0},
 	{"SLIGHTLY", processNextWord, smallInc, 0}, {"MUCH", processNextWord, largeInc, 0},
 
-	{"TEMP", processNextWord, tempArray, 0}, {"TEMPERATURE", processNextWord, tempArray, 0}, {"WARMER", tempUp, 0, 80},
-	{"HOTTER", tempUp, 0, 80}, {"COOLER", tempDown, 0, 75}, {"COLDER", tempDown, 0, 75},
+	{"TEMP", processNextWord, tempArray, 0}, {"TEMPERATURE", processNextWord, tempArray, 0}, {"WARMER", tempUp, 0, 5},
+	{"HOTTER", tempUp, 0, 5}, {"COOLER", tempDown, 0, 5}, {"COLDER", tempDown, 0, 5},
 
 	{"MODE", processNextWord, headMode, 0}, {"SHOWER", mode, 0, 0}, {"RAIN", mode, 0, 1}, 
 	{"MASSAGE", mode, 0, 2}, {"JET", mode, 0, 3},
