@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 #define BUFFER_SIZE 256
-char address[] = {"nathanbrown@10.0.0.58"};
+char address[] = {"nathanbrown@155.42.112.33"};
 int currentTemp = 75;
 int currentPosition_x = 0;
 int currentPosition_y = 0;
