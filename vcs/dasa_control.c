@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 #define BUFFER_SIZE 256
-char address[] = {"nathanbrown@155.42.112.239"};
+char address[] = {"nathanbrown@10.0.0.58"};
 int currentTemp = 75;
 int currentPosition_x = 0;
 int currentPosition_y = 0;
@@ -137,20 +137,6 @@ void moveRight(struct commandData* words, int arg)
 
 void moveDown(struct commandData* words, int arg)
 {
-	if ((currentPosition_y - arg) < 0 || (currentPosition_y - arg) > 100)
-	{
-		printf("Invalid y positon %d", (currentPosition_y - arg));
-	}
-	else
-	{
-		currentPosition_y = currentPosition_y - arg;
-		printf("Moving down\n");
-		toDasaDemo("y", currentPosition_y);
-	}
-}
-
-void moveUp(struct commandData* words, int arg)
-{
 	if ((currentPosition_y + arg) < 0 || (currentPosition_y + arg) > 100)
 	{
 		printf("Invalid y positon %d", (currentPosition_y + arg));
@@ -159,6 +145,20 @@ void moveUp(struct commandData* words, int arg)
 	{
 		currentPosition_y = currentPosition_y + arg;
 		printf("Moving down\n");
+		toDasaDemo("y", currentPosition_y);
+	}
+}
+
+void moveUp(struct commandData* words, int arg)
+{
+	if ((currentPosition_y - arg) < 0 || (currentPosition_y - arg) > 100)
+	{
+		printf("Invalid y positon %d", (currentPosition_y - arg));
+	}
+	else
+	{
+		currentPosition_y = currentPosition_y - arg;
+		printf("Moving up\n");
 		toDasaDemo("y", currentPosition_y);
 	}
 }
