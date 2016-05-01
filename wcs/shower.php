@@ -7,20 +7,6 @@
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	<title>DASA</title>
 	<?php include 'includes.php' ?>
-	<script>
-		$(function() {
-			$( "#slider-temp" ).slider({
-				range: "max",
-				min: 75,
-				max: 110,
-				value: 75,
-				slide: function( event, ui ) {
-					$( "#temp" ).val( ui.value );
-				}
-			});
-			$( "#temp" ).val( $( "#slider-temp" ).slider( "value" ) );
-		});
-	</script>
 </head>
 <body role="document">
 <?php include 'nav.php' ?>
@@ -73,31 +59,37 @@ function test_input($data) {
    return $data;
 }
 ?>
-
-<div id="wrapper">
-<h2>Shower Input</h2>
-<p><span>* required field.</span></p>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
-   <label for="temp">Shower Temperature:</label>
-   <input id="temp" type="text" readonly name="temp" value="<?php echo $temp;?>">
+<center>
+<div class="container theme-showcase" role="main">
+<form method="post" id="shower" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
+   <strong>Shower Temperature:</strong>
    <div id="slider-temp"></div>
-   <span>* <?php echo $tempErr;?></span>
+   <input id="temp" type="text" readonly name="temp" value="<?php echo $temp;?>"> Fahrenheit
    <br><br>
-   Shower mode: <input type="text" name="mode" value="<?php echo $mode;?>">
-   <span>* <?php echo $modeErr;?></span>
+   <label for="mode">Shower Mode</label><br>
+   <input type="radio" name="mode" value="rain" checked> Rain<br>
+   <input type="radio" name="mode" value="shower"> Shower<br>
+   <input type="radio" name="mode" value="massage"> Massage<br>
+   <input type="radio" name="mode" value="jet"> Jet
    <br><br>
-   Shower Location: <br>
-   X: <input type="text" name="x" value="<?php echo $x;?>">
-   <span><?php echo $xErr;?></span>
+   Shower Head Position (Top-down view)<br>
+   Drag shower head to desired position:
+   <div id="canvas">
+		<div id="box">
+		Shower Head
+        </div>
+   </div>
+   <input type="hidden" name="z" value="<?php echo $z;?>">
+   <input type="hidden" name="x" value="<?php echo $x;?>">
+   <strong>Shower Location (Up/Down)</strong>
    <br><br>
-   Y: <input type="text" name="y" value="<?php echo $y;?>">
-   <span><?php echo $yErr;?></span>
-   Z: <input type="text" name="z" value="<?php echo $z;?>">
-   <span><?php echo $zErr;?></span>
+   <div id="slider-y"></div>
+   <input id="y" type="hidden" readonly name="y" value="<?php echo $temp;?>">
    <br><br>
-   <input type="submit" name="submit" value="Submit"> 
+   <br><br>
+   <input type="submit" name="submit" value="Start Shower">
 </form>
-
+<br><br>
 <?php
 $tempstring = './dasademo temp ';
 $tempstring .= $temp;
@@ -125,6 +117,7 @@ if (!$ssh->login('nathanbrown', 'dasa')) {
     exit('Login Failed');
 }
 
+echo $ssh->exec("./dasademo on")
 echo $ssh->exec($tempstring);
 echo $ssh->exec($modestring);
 echo $ssh->exec($xstring);
@@ -134,3 +127,5 @@ echo $ssh->exec($zstring); */
 
 ?>
 <?php include 'footer.php' ?>
+</center>
+<script src="includes/js/ui_tools.js"></script>

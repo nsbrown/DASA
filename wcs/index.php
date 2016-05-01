@@ -10,5 +10,7 @@
 </head>
 <body role="document">
 <?php include 'nav.php' ?>
+<div class="container theme-showcase" role="main">
 	<h1>Hello, world!</h1>
+</div>
 <?php include 'footer.php' ?>
