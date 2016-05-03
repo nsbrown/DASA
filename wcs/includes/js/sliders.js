@@ -19,7 +19,7 @@ $(function() {
 				max: 100,
 				value: 100,
 				slide: function( event, ui ) {
-					$( "#y" ).val( ui.value );
+					$( "#y" ).val( 100 - ui.value );
 				}
 			});
 			$( "#y" ).val( $( "#slider-y" ).slider( "value" ) );

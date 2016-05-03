@@ -84,7 +84,7 @@ function test_input($data) {
    <strong>Shower Location (Up/Down)</strong>
    <br><br>
    <div id="slider-y"></div>
-   <input id="y" type="hidden" readonly name="y" value="<?php echo $temp;?>">
+   <input id="y" type="hidden" readonly name="y" value="<?php echo $y;?>">
    <br><br>
    <br><br>
    <input type="submit" name="submit" value="Start Shower">
@@ -112,7 +112,7 @@ echo "$ystring";
 echo "<br />";
 echo "$zstring";
 
-/*$ssh = new Net_SSH2('155.42.112.33');
+/** $ssh = new Net_SSH2('155.42.112.33');
 if (!$ssh->login('nathanbrown', 'dasa')) {
     exit('Login Failed');
 }
@@ -122,7 +122,7 @@ echo $ssh->exec($tempstring);
 echo $ssh->exec($modestring);
 echo $ssh->exec($xstring);
 echo $ssh->exec($ystring);
-echo $ssh->exec($zstring); */
+echo $ssh->exec($zstring);*/
 
 
 ?>
