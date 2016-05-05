@@ -14,42 +14,15 @@
 include('Net/SSH2.php');
 
 // define variables and set to empty values
-$tempErr = $modeErr = $xErr = $yErr = $zErr = "";
-$temp = $mode = $x = $y = $z = "";
+$temp = $mode = $x = $y = $z = $power = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-   if (empty($_POST["temp"])) {
-     $nameErr = "Temperature value is required.";
-   } else {
-     $temp = test_input($_POST["temp"]);
-     if (!is_numeric($temp)) {
-       $tempErr = "Only numbers are allowed."; 
-     }
-   }
-   
-   if (empty($_POST["mode"])) {
-     $modeErr = "Shower mode is required.";
-   } else {
-     $mode = test_input($_POST["mode"]);
-   }
-     
-   if (empty($_POST["x"])) {
-     $xErr = "X value is required.";
-   } else {
-     $x = test_input($_POST["x"]);
-   }
-
-   if (empty($_POST["y"])) {
-     $yErr = "Y value is required.";
-   } else {
-     $y = test_input($_POST["y"]);
-   }
-
-   if (empty($_POST["z"])) {
-     $zErr = "Z value is required.";
-   } else {
-     $z = test_input($_POST["z"]);
-   }
+    $temp = test_input($_POST["temp"]);
+    $mode = test_input($_POST["mode"]);
+    $x = test_input($_POST["x"]);
+    $y = test_input($_POST["y"]);
+    $z = test_input($_POST["z"]);
+	$power = test_input($POST["power"]);
 }
 
 function test_input($data) {
@@ -86,8 +59,12 @@ function test_input($data) {
    <div id="slider-y"></div>
    <input id="y" type="hidden" readonly name="y" value="<?php echo $y;?>">
    <br><br>
+   <label for="mode">Power</label><br>
+   <input type="radio" name="power" value="on" checked> On<br>
+   <input type="radio" name="power" value="off"> Off<br>
    <br><br>
-   <input type="submit" name="submit" value="Start Shower">
+   <br><br>
+   <input type="submit" name="submit" value="Set Shower">
 </form>
 <br><br>
 <?php
@@ -101,6 +78,8 @@ $ystring = './dasademo y ';
 $ystring .= $y;
 $zstring = './dasademo z ';
 $zstring .= $z;
+$powerstring = './dasademo ';
+$powerstring .= $power;
 
 echo "$tempstring";
 echo "<br />";
@@ -111,13 +90,14 @@ echo "<br />";
 echo "$ystring";
 echo "<br />";
 echo "$zstring";
+echo "<br />";
+echo "$powerstring";
 
 $ssh = new Net_SSH2('10.0.0.11');
 if (!$ssh->login('nathanbrown', 'dasa')) {
     exit('Login Failed');
 }
-
-echo $ssh->exec("./dasademo on")
+echo $ssh->exec($powerstring);
 echo $ssh->exec($tempstring);
 echo $ssh->exec($modestring);
 echo $ssh->exec($xstring);
