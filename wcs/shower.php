@@ -112,7 +112,7 @@ echo "$ystring";
 echo "<br />";
 echo "$zstring";
 
-/** $ssh = new Net_SSH2('155.42.112.33');
+$ssh = new Net_SSH2('155.42.94.51');
 if (!$ssh->login('nathanbrown', 'dasa')) {
     exit('Login Failed');
 }
@@ -122,7 +122,7 @@ echo $ssh->exec($tempstring);
 echo $ssh->exec($modestring);
 echo $ssh->exec($xstring);
 echo $ssh->exec($ystring);
-echo $ssh->exec($zstring);*/
+echo $ssh->exec($zstring);
 
 
 ?>
