@@ -112,7 +112,7 @@ echo "$ystring";
 echo "<br />";
 echo "$zstring";
 
-$ssh = new Net_SSH2('155.42.94.51');
+$ssh = new Net_SSH2('10.0.0.11');
 if (!$ssh->login('nathanbrown', 'dasa')) {
     exit('Login Failed');
 }
