@@ -14,10 +14,9 @@
 include('Net/SSH2.php');
 
 // define variables and set to empty values
-$power = $temp = $mode = $x = $y = $z = "";
+$temp = $mode = $x = $y = $z = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	$power = test_input($POST["power"]);
     $temp = test_input($_POST["temp"]);
     $mode = test_input($_POST["mode"]);
     $x = test_input($_POST["x"]);
@@ -35,10 +34,6 @@ function test_input($data) {
 <center>
 <div class="container theme-showcase" role="main">
 <form method="post" id="shower" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
-   <label for="power">Power</label><br>
-   <input type="radio" name="power" value="on" checked> On<br>
-   <input type="radio" name="power" value="off"> Off<br>
-   <br><br>
    <strong>Shower Temperature:</strong>
    <div id="slider-temp"></div>
    <input id="temp" type="text" readonly name="temp" value="<?php echo $temp;?>"> Fahrenheit
@@ -68,8 +63,6 @@ function test_input($data) {
 </form>
 <br><br>
 <?php
-$powerstring = './dasademo ';
-$powerstring .= $power;
 $tempstring = './dasademo temp ';
 $tempstring .= $temp;
 $modestring = './dasademo mode ';
@@ -81,8 +74,6 @@ $ystring .= $y;
 $zstring = './dasademo z ';
 $zstring .= $z;
 
-echo "$powerstring";
-echo "<br />";
 echo "$tempstring";
 echo "<br />";
 echo "$modestring";
@@ -97,7 +88,6 @@ $ssh = new Net_SSH2('10.0.0.11');
 if (!$ssh->login('nathanbrown', 'dasa')) {
     exit('Login Failed');
 }
-echo $ssh->exec($powerstring);
 echo $ssh->exec($tempstring);
 echo $ssh->exec($modestring);
 echo $ssh->exec($xstring);
