@@ -35,6 +35,10 @@ function test_input($data) {
 <center>
 <div class="container theme-showcase" role="main">
 <form method="post" id="shower" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
+   <label for="power">Power</label><br>
+   <input type="radio" name="power" value="on" checked> On<br>
+   <input type="radio" name="power" value="off"> Off<br>
+   <br><br>
    <strong>Shower Temperature:</strong>
    <div id="slider-temp"></div>
    <input id="temp" type="text" readonly name="temp" value="<?php echo $temp;?>"> Fahrenheit
@@ -59,15 +63,13 @@ function test_input($data) {
    <div id="slider-y"></div>
    <input id="y" type="hidden" readonly name="y" value="<?php echo $y;?>">
    <br><br>
-   <label for="power">Power</label><br>
-   <input type="radio" name="power" value="on" checked> On<br>
-   <input type="radio" name="power" value="off"> Off<br>
-   <br><br>
    <br><br>
    <input type="submit" name="submit" value="Set Shower">
 </form>
 <br><br>
 <?php
+$powerstring = './dasademo ';
+$powerstring .= $power;
 $tempstring = './dasademo temp ';
 $tempstring .= $temp;
 $modestring = './dasademo mode ';
@@ -78,8 +80,6 @@ $ystring = './dasademo y ';
 $ystring .= $y;
 $zstring = './dasademo z ';
 $zstring .= $z;
-$powerstring = './dasademo ';
-$powerstring .= $power;
 
 echo "$powerstring";
 echo "<br />";
