@@ -14,15 +14,15 @@
 include('Net/SSH2.php');
 
 // define variables and set to empty values
-$temp = $mode = $x = $y = $z = $power = "";
+$power = $temp = $mode = $x = $y = $z = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	$power = test_input($POST["power"]);
     $temp = test_input($_POST["temp"]);
     $mode = test_input($_POST["mode"]);
     $x = test_input($_POST["x"]);
     $y = test_input($_POST["y"]);
     $z = test_input($_POST["z"]);
-	$power = test_input($POST["power"]);
 }
 
 function test_input($data) {
@@ -59,9 +59,9 @@ function test_input($data) {
    <div id="slider-y"></div>
    <input id="y" type="hidden" readonly name="y" value="<?php echo $y;?>">
    <br><br>
-   <label for="mode">Power</label><br>
-   <input type="radio" name="power" value="on -1" checked> On<br>
-   <input type="radio" name="power" value="off -1"> Off<br>
+   <label for="power">Power</label><br>
+   <input type="radio" name="power" value="on" checked> On<br>
+   <input type="radio" name="power" value="off"> Off<br>
    <br><br>
    <br><br>
    <input type="submit" name="submit" value="Set Shower">
@@ -81,6 +81,8 @@ $zstring .= $z;
 $powerstring = './dasademo ';
 $powerstring .= $power;
 
+echo "$powerstring";
+echo "<br />";
 echo "$tempstring";
 echo "<br />";
 echo "$modestring";
@@ -90,8 +92,6 @@ echo "<br />";
 echo "$ystring";
 echo "<br />";
 echo "$zstring";
-echo "<br />";
-echo "$powerstring";
 
 $ssh = new Net_SSH2('10.0.0.11');
 if (!$ssh->login('nathanbrown', 'dasa')) {
