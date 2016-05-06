@@ -60,8 +60,8 @@ function test_input($data) {
    <input id="y" type="hidden" readonly name="y" value="<?php echo $y;?>">
    <br><br>
    <label for="mode">Power</label><br>
-   <input type="radio" name="power" value="on" checked> On<br>
-   <input type="radio" name="power" value="off"> Off<br>
+   <input type="radio" name="power" value="on -1" checked> On<br>
+   <input type="radio" name="power" value="off -1"> Off<br>
    <br><br>
    <br><br>
    <input type="submit" name="submit" value="Set Shower">
